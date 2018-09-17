@@ -1,0 +1,24 @@
+<div>
+  <ul>
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+      <span>{{hero.id}} &nbsp;</span> <span>{{hero.name}}</span>
+    </li>
+  </ul>
+</div>
+
+
+<!-- <div *ngIf="selectedHero">
+  <h2>Selected Hero</h2>
+  <p>Hero {{selectedHero.name | uppercase}} details</p>
+  <ul>
+    <li>Id: {{selectedHero.id}}</li>
+    <li><label>Name: </label> <input [(ngModel)]="selectedHero.name" placeholder="name"></li>
+     <li>Date Of Birth: {{selectedHero.dob | date:format | uppercase}}</li> 
+  </ul>
+
+</div> -->
+
+
+<app-hero-detail [hero] = "selectedHero"></app-hero-detail>
+
+<button (click)="toggleFormat()">Change Dob Format</button>

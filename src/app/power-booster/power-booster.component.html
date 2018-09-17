@@ -1,0 +1,7 @@
+<div>
+  <h2>Power Booster</h2>
+  <div>Normal Power: <input type="text" [(ngModel)]="power" /></div>
+  <div>Boost Factor: <input type = "text" [(ngModel)]="factor"/> </div>
+  <h4>Super Power Boost: {{power | exponentialStrength: factor}}</h4>
+
+</div>

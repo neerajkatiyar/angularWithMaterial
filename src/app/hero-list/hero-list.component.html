@@ -1,0 +1,12 @@
+<h3>
+Heroes from .json file.
+</h3>
+
+<div *ngFor= "let hero of ('assets/heroes.json' | fetch)">
+  <span class="badge">{{hero.id}}</span> &nbsp; <i>{{hero.name}}</i>
+</div>
+
+
+<p>Heroes as Json</p>
+
+<!-- {{'assets/heroes.json' | fetch | json}} -->

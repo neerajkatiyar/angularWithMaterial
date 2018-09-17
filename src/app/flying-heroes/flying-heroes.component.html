@@ -1,0 +1,19 @@
+New Hero : 
+<input  type = "text" #box 
+        (keyup.enter) = "addHero(box.value); box.value= '' "
+        placeholder="Hero name" />
+        Canfly: <mat-checkbox [(ngModel)] = "canFly"></mat-checkbox> 
+<button mat-raised-button color="link" (click) = "reset()">Reset</button>
+
+<div *ngFor="let hero of (heroes | flyingHeroesImpure)">
+  {{hero.name}}
+</div>
+<hr>
+<div *ngFor="let hero of heroes">
+  {{hero.name}}
+</div>
+
+<div>
+  app-hero-async-message component inside flying heroes
+</div>
+<app-hero-async-message></app-hero-async-message>
