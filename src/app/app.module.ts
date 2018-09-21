@@ -29,7 +29,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CustomMaterialModule} from '../modules/custom-material/customMaterial.module';// for angular material
 //
 
-import { GridSystemComponent } from './grid-system/grid-system.component'; 
+import { GridSystemComponent } from './grid-system/grid-system.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component'; 
+
+// Forms Module
+import {ReactiveFormsModule} from '@angular/forms';
+
 
 
 
@@ -47,14 +52,16 @@ import { GridSystemComponent } from './grid-system/grid-system.component';
     FlyingHeroesPipe,
     FetchJsonPipe,
     NavbarComponent,
-    GridSystemComponent
+    GridSystemComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

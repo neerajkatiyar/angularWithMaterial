@@ -1,0 +1,15 @@
+<p>
+Angular Forms Example
+
+
+</p>
+
+<form>
+
+  <mat-form-field>
+    <input matInput [formControl] = "name"  placeholder="Name">
+  </mat-form-field>
+<button type = "button" mat-raised-button color="primary" (click) = "updateName()">updateName</button>
+</form>
+
+{{name.value}}

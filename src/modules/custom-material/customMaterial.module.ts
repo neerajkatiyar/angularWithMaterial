@@ -3,13 +3,23 @@ MatButtonModule,
 MatCheckboxModule,
 MatToolbarModule,
 MatMenuModule,
-MatGridListModule
+MatGridListModule,
+MatFormFieldModule,
+MatInputModule
 } from '@angular/material'
 import { NgModule } from '@angular/core';
 
 @NgModule({
-imports:[MatButtonModule,MatCheckboxModule,MatToolbarModule,MatMenuModule,MatGridListModule],
-exports:[MatButtonModule,MatCheckboxModule,MatToolbarModule,MatMenuModule,MatGridListModule]
+imports:[
+         MatButtonModule,MatCheckboxModule,
+         MatToolbarModule,MatMenuModule,
+         MatGridListModule,MatFormFieldModule,MatInputModule
+        ],
+exports:[
+         MatButtonModule,MatCheckboxModule,
+         MatToolbarModule,MatMenuModule,
+         MatGridListModule,MatFormFieldModule,MatInputModule
+        ]
 })
 export class CustomMaterialModule
 {
