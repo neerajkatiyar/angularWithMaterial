@@ -1,11 +1,13 @@
 <mat-toolbar color="primary" class="mat-elevation-z6 navbar navbar-header" >
-  <span><i>Alphonso, The Mango</i></span>
+  <span><i> <a mat-button class="no-link-decoration" routerLink=""><i class="material-icons">
+    explore
+    </i> Alphonso, The Mango </a></i></span>
   <span class="fill-space"></span>
 
-  <button mat-button [matMenuTriggerFor] = "menu1">Menu1</button>
+  <button mat-button [matMenuTriggerFor] = "menu1">Hero</button>
   <mat-menu #menu1 = "matMenu">
-    <button mat-menu-item>item1</button>
-    <button mat-menu-item>item2</button>
+    <a mat-menu-item routerLink="hero/hero-list"  >Hero List</a>
+    <a mat-menu-item routerLink="hero/hero-flying-hero">Flying Heroes</a>
   </mat-menu>  
 
   <button mat-button [matMenuTriggerFor] = "menu2">Menu2</button>

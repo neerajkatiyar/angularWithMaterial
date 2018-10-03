@@ -7,7 +7,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 
 import { PowerBoosterComponent } from './power-booster/power-booster.component';
 
-import {FormsModule} from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { FlyingHeroesComponent } from './flying-heroes/flying-heroes.component';
 import { HeroAsyncMessageComponent } from './hero-async-message/hero-async-message.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
@@ -34,7 +34,10 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 // Forms Module
 import {ReactiveFormsModule} from '@angular/forms';
+import { MessagesComponent } from './messages/messages.component';
 
+//App routing configuration
+import {AppRoutingModule} from '../app/appRoutes/appRoutingModule';
 
 
 
@@ -53,7 +56,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     FetchJsonPipe,
     NavbarComponent,
     GridSystemComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
