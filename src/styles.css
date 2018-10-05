@@ -11,3 +11,11 @@ body {
     margin-top: 56px;
     overflow-y: scroll;
  }
+
+
+ 
+@media (max-width: 608.5px){
+    .content{
+        margin-top: 112px;
+    }
+}

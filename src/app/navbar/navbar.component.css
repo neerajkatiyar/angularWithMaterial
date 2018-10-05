@@ -26,3 +26,21 @@
 .no-link-decoration{
     text-decoration: none;
 }
+
+
+@media (max-width: 608.5px){
+    .navbar-header{
+        height: 112px !important;
+        padding: 16px 0px;
+    }
+    #navMenu
+    {
+        width: 100%;
+    }
+    #menuItems{
+        display:flex;
+    }
+    #menuItems button{
+        flex: 1;
+    }
+}
