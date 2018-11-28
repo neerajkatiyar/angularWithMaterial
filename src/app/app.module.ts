@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//http handling module
 import { HttpClientModule }          from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -14,7 +15,7 @@ import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroDetailComponent} from './hero-detail/hero-detail.component';
 
 //navbar
-import { NavbarComponent } from './navbar/navbar.component'; 
+import { NavbarComponent } from '../app/menu/navbar/navbar.component';
 
 
 // pipes import section start
@@ -39,6 +40,12 @@ import { MessagesComponent } from './messages/messages.component';
 //App routing configuration
 import {AppRoutingModule} from '../app/appRoutes/appRoutingModule';
 
+import {ClickOutside} from '../app/directives/clickOutsideDive';
+import { NavbarContentComponent } from '../app/menu/navbar-content/navbar-content.component';
+import { FormRendererComponent } from './form-renderer/form-renderer.component';
+import { ControlRendererComponent } from './control-renderer/control-renderer.component';
+import { QuestionsComponent } from './questions/questions.component';
+
 
 
 @NgModule({
@@ -57,7 +64,12 @@ import {AppRoutingModule} from '../app/appRoutes/appRoutingModule';
     NavbarComponent,
     GridSystemComponent,
     ReactiveFormComponent,
-    MessagesComponent
+    MessagesComponent,
+    ClickOutside,
+    NavbarContentComponent,
+    FormRendererComponent,
+    ControlRendererComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
