@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ControlBase } from '../models/formBuilder/controlBase';
 import { FormGroup } from '@angular/forms';
+import { ValidationErrors, ValidatorFn } from "@angular/forms";
 
 @Component({
   selector: 'app-control-renderer',
@@ -12,6 +13,6 @@ export class ControlRendererComponent{
   @Input() form: FormGroup;
 
   get isValid(){
-    return this.form.controls[this.control.key].valid;
+    return  this.control.validators ? this.form.controls[this.control.key].valid : true;
   }
 }

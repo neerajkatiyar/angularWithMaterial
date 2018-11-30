@@ -69,7 +69,7 @@ import { QuestionsComponent } from './questions/questions.component';
     NavbarContentComponent,
     FormRendererComponent,
     ControlRendererComponent,
-    QuestionsComponent
+    QuestionsComponent,
   ],
   imports: [
     BrowserModule,

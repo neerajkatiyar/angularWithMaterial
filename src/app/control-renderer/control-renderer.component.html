@@ -1,11 +1,25 @@
 <div [formGroup] = "form">
-  <label [attr.for] = "control.key">{{control.label}}</label>
+  <label [attr.for] = "control.key" *ngIf="control.label != 'n/a'">{{control.label}}</label>
 
   <div [ngSwitch] = "control.controlType">
-    <input *ngSwitchCase = "'textbox'" [formControlName] = "control.key" [id] ="control.key" [type] = "control.type">
-    <select *ngSwitchCase = "'dropdown'" [id] = "control.key" [formControlName] = "control.key">
-      <option *ngFor="let opt of control.options" [value]="opt.value">{{opt.key}}</option> 
-    </select>
+      <div class="form-control" *ngSwitchCase = "'textbox'">
+        <input  [formControlName] = "control.key" [id] ="control.key" [type] = "control.type">
+      </div>
+      <div class="form-control"  *ngSwitchCase = "'dropdown'">
+        <select [id] = "control.key" [formControlName] = "control.key">
+          <option *ngFor="let opt of control.options" [value]="opt.value">{{opt.key}}</option> 
+        </select>      
+      </div>
+      <div class="form-control" *ngSwitchCase = "'button'">
+        <button [id] ="control.key" [type] = "control.type">{{control.value}}</button>
+      </div>
+      <div class="form-control" *ngSwitchCase = "'custom'">
+        <div *ngIf="control.type=='multiple'">
+          <div *ngFor = "let l2control of control.controls" class = "form-row">
+            <app-control-renderer [control] ="l2control" [form]= "form.products"></app-control-renderer>
+          </div>
+        </div>
+      </div>
   </div>
   <div class = "errorMessage" *ngIf="!isValid" >{{control.label}} is required</div>
 </div>
