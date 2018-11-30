@@ -13,11 +13,12 @@
       <div class="form-control" *ngSwitchCase = "'button'">
         <button [id] ="control.key" [type] = "control.type">{{control.value}}</button>
       </div>
-      <div class="form-control" *ngSwitchCase = "'custom'">
-        <div *ngIf="control.type=='multiple'">
-          <div *ngFor = "let l2control of control.controls" class = "form-row">
-            <app-control-renderer [control] ="l2control" [form]= "form.products"></app-control-renderer>
-          </div>
+      <div *ngSwitchCase = "'custom'">
+
+        <div [ngSwitch] = "control.key">
+            <div *ngSwitchCase ="'product'">
+              <add-product products = control.controls></add-product>
+            </div>
         </div>
       </div>
   </div>

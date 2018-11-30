@@ -49,7 +49,7 @@ export class TestQuestionservice{
             }),
 
             new CustomControl({
-                key: 'products',
+                key: 'product',
                 label: 'Products',
                 order: 5,
                 value: 'Products',

@@ -45,6 +45,7 @@ import { NavbarContentComponent } from '../app/menu/navbar-content/navbar-conten
 import { FormRendererComponent } from './form-renderer/form-renderer.component';
 import { ControlRendererComponent } from './control-renderer/control-renderer.component';
 import { QuestionsComponent } from './questions/questions.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 
 
@@ -70,6 +71,7 @@ import { QuestionsComponent } from './questions/questions.component';
     FormRendererComponent,
     ControlRendererComponent,
     QuestionsComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
