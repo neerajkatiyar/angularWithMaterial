@@ -5,7 +5,9 @@ MatToolbarModule,
 MatMenuModule,
 MatGridListModule,
 MatFormFieldModule,
-MatInputModule
+MatInputModule,
+MatSelectModule,
+MatCardModule
 } from '@angular/material'
 import { NgModule } from '@angular/core';
 
@@ -13,12 +15,14 @@ import { NgModule } from '@angular/core';
 imports:[
          MatButtonModule,MatCheckboxModule,
          MatToolbarModule,MatMenuModule,
-         MatGridListModule,MatFormFieldModule,MatInputModule
+         MatGridListModule,MatFormFieldModule,MatInputModule,
+         MatSelectModule,MatCardModule
         ],
 exports:[
          MatButtonModule,MatCheckboxModule,
          MatToolbarModule,MatMenuModule,
-         MatGridListModule,MatFormFieldModule,MatInputModule
+         MatGridListModule,MatFormFieldModule,MatInputModule,
+         MatSelectModule,MatCardModule
         ]
 })
 export class CustomMaterialModule

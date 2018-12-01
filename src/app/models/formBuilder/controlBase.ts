@@ -8,13 +8,15 @@ export class ControlBase<T>{
     order: number;
     controlType: string;
     type:string;
+    children:ControlBase<T>[];
     constructor(options: {
         value? : T,
         key?: string,
         label?: string,
         validators?: ValidatorFn[],
         order?: number,
-        controlType? : string
+        controlType? : string,
+        children?:any
      } = {}){
         this.value = options.value;
         this.key = options.key || '';
@@ -22,5 +24,6 @@ export class ControlBase<T>{
         this.validators = options.validators ;
         this.order = options.order === undefined ? 1 : options.order;
         this.controlType = options.controlType || '';
+        this.children = options.children;
     }
 }

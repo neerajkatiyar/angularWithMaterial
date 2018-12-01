@@ -4,7 +4,7 @@
       <app-control-renderer [control] ="control" [form]= "form"></app-control-renderer>
     </div>
     <div class = "form-row">
-      <button type = "submit" [disabled] ="!form.valid">Save</button>
+      <button mat-button mat-raised-button color="primary" type = "submit" [disabled] ="!form.valid">Save</button>
     </div>
   </form>
 

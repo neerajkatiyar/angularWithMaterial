@@ -3,7 +3,6 @@ import { DropdownContol } from '../models/formBuilder/controls/dropdownControl';
 import { TextboxControl } from '../models/formBuilder/controls/textboxControl';
 import {ButtonControl } from '../models/formBuilder/controls/buttonControl';
 import { Validators } from '@angular/forms';
-import { Button } from 'protractor';
 import {CustomControl} from '../models/formBuilder/controls/customControl';
 
 
@@ -40,13 +39,13 @@ export class TestQuestionservice{
                 required: true
             }),
 
-            new ButtonControl({
-                key: 'addCompaniess',
-                label: 'n/a',
-                order: 4,
-                value: "Add Company",
-                type:"button"
-            }),
+            // new ButtonControl({
+            //     key: 'addCompaniess',
+            //     label: 'n/a',
+            //     order: 4,
+            //     value: "Add Company",
+            //     type:"button"
+            // }),
 
             new CustomControl({
                 key: 'product',
@@ -54,7 +53,7 @@ export class TestQuestionservice{
                 order: 5,
                 value: 'Products',
                 type: 'multiple',
-                controls: [
+                children: [
                     new TextboxControl({
                         key: 'name',
                         label: 'Product Name',
@@ -68,6 +67,7 @@ export class TestQuestionservice{
                         label: 'Product description ',
                         validators:[Validators.required],
                         order: 2,
+                        value: '',
                         required: true
                     }),
                 ]

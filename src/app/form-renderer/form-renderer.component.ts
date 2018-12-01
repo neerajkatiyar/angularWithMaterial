@@ -12,14 +12,14 @@ import { FormControlService } from '../services/formService/formControlService';
 export class FormRendererComponent implements OnInit {
 
   @Input() controls : ControlBase<any>[] = [];
-  form : FormGroup;
+  @Input() form? : FormGroup;
   payLoad = '';
 
   constructor(private fcs : FormControlService) { }
 
 
-  ngOnInit() {
-    this.form = this.fcs.toFormGroup(this.controls);
+  ngOnInit() {    
+    this.form ? this.form.patchValue(this.fcs.toFormGroup(this.controls)) : this.form = this.fcs.toFormGroup(this.controls);
   }
 
   onSubmit(){
