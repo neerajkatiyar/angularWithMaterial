@@ -4,7 +4,7 @@
 
 <div [formGroup] ="form">
     <mat-grid-list cols="3" rowHeight="3:3.2">   
-        <mat-grid-tile formArrayName="product" *ngFor="let product of products ; let i = index;">
+        <mat-grid-tile formArrayName="product" *ngFor="let product of form.controls.product.controls ; let i = index;">
             <div >
                 <div>
                     <mat-card class="product-card">
@@ -13,22 +13,20 @@
                           <mat-card-title>Add Product</mat-card-title>
                           <mat-card-subtitle>~dynamically</mat-card-subtitle>
                         </mat-card-header>
-                        <img mat-card-image src="../../assets/images/cover_img{{i}}.jpg" height="330px" width="120px" alt="Photo of a Shiba Inu">
+                        <div class="product-image">
+                            <img mat-card-image src="../../assets/images/cover_img{{i}}.jpg" alt="Photo...........~~">                            
+                        </div>
                         <mat-card-content>
                              <!-- app-form-renderer takes formGroup -->
-                            <app-form-renderer  [form] = "form.controls.product.controls[i]" [controls] = "product"></app-form-renderer>
+                             <app-form-renderer  [form] = "product" [controls] = "productControls"></app-form-renderer>
                         </mat-card-content>
                         <mat-card-actions>
-                          <button mat-button>LIKE</button>
-                          <button mat-button>SHARE</button>
+                          <button mat-button type="button">LIKE</button>
+                          <button mat-button type="button">SHARE</button>
                         </mat-card-actions>
                       </mat-card>
               </div>
-              </div>
-    
-    
+            </div>   
         </mat-grid-tile>
-      </mat-grid-list>
+    </mat-grid-list>
 </div>
-
-

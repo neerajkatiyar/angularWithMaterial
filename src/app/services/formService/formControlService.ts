@@ -34,4 +34,9 @@ export class FormControlService {
         // console.log("this is form group : "+ group)
         return new FormGroup(group);
     }
+
+    insertInFormArray(fa:FormArray,controls : ControlBase<any>[])
+    {
+        fa.push(this.toFormGroup(controls));
+    }
 }

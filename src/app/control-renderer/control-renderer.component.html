@@ -25,10 +25,9 @@
         <button mat-button mat-raised-button color="primary" [id] ="control.key" [type] = "control.type">{{control.value}}</button>
       </div>
       <div *ngSwitchCase = "'custom'">
-
         <div [ngSwitch] = "control.key">
             <div *ngSwitchCase ="'product'">
-              <app-add-product [form] ="form" [product] = "control.children"></app-add-product>
+              <app-add-product [form] ="form"  [multiple] ="control.type" [productControls] = "control.children"></app-add-product>
             </div>
         </div>
       </div>

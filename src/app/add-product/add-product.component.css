@@ -6,3 +6,27 @@
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
   }
+
+  .product-image{
+    width: 199px;
+    height: 290px;
+    justify-content: center;
+    display: flex !important;
+    flex-direction: row;
+    overflow: hidden;
+   
+  }
+  .product-image img{
+  
+    flex: 1;
+  height: 100%;
+  }
+
+  .mat-card-image{
+    width: auto !important;
+    margin-top: 5px !important;
+  }
+
+  .mat-card-image :first-child{
+    margin-top: 0px !important;
+  }

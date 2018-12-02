@@ -51,12 +51,6 @@
     </mat-toolbar>
   </div>
 </div>
-  <div click-outside (clickOutside)="onClickOutside($event)" class="nav-body"[ngClass]="{'nav-body-open': active==true}"  >
-        <br>
-        {{active}}
-        sdsddsd
-        dfd
-        fsdfddff
-        dsfdfdfd
-        dsf
+  <div click-outside (clickOutside)="onClickOutside($event)" class="nav-body" [ngClass]="{'nav-body-open': active==true}"  >
+     <app-navbar-content></app-navbar-content>
   </div>

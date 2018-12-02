@@ -3,7 +3,7 @@ import {GridSystemComponent} from '../grid-system/grid-system.component';
 import { HeroListComponent } from '../hero-list/hero-list.component';
 import { FlyingHeroesComponent } from '../flying-heroes/flying-heroes.component';
 import { HeroAsyncMessageComponent } from '../hero-async-message/hero-async-message.component';
-
+import { QuestionsComponent } from '../questions/questions.component';
 
 export const appRoutes: Routes = [
     {
@@ -21,5 +21,10 @@ export const appRoutes: Routes = [
     {
         path: 'hero/hero-async-message',
         component: HeroAsyncMessageComponent
+    },
+
+    {
+        path: 'admin/add-product',
+        component: QuestionsComponent
     }
 ];

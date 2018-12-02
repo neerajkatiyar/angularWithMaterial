@@ -9,27 +9,17 @@ import { FormControlService } from '../services/formService/formControlService';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-  @Input() product :  any;
-  products: any[] = [];
+  @Input() productControls :  ControlBase<any>[];
   @Input() form : FormGroup;
-  
+  @Input() multiple?: any;
   constructor(private fcs : FormControlService) { }
 
 
-  ngOnInit() {   
-    this.products.push(this.product) 
-  }
-
-  onSubmit(){   
-  }
+  ngOnInit() { }
     
   addProduct()
   {
-    if(this.form.controls.product instanceof FormArray)
-    {
-      this.form.controls.product.push(this.fcs.toFormGroup(this.product))
-    }
-     // this.form.controls.push()
-      this.products.push(this.product)
+    if(this.multiple =="multiple")
+    this.fcs.insertInFormArray(<FormArray>this.form.controls.product,this.productControls);
   }
 }
