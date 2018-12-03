@@ -61,21 +61,19 @@ export class TestQuestionservice{
                         validators:[Validators.required],
                         order: 1
                     }),
-        
-                    new TextboxControl({
-                        key: 'description',
-                        label: 'Product description ',
-                        validators:[Validators.required],
-                        order: 2,
-                        value: '',
-                        required: true
-                    }),
+                    new CustomControl({
+                        key: 'product',
+                        label: 'Products-new',
+                        order: 3,
+                        value: 'Products-new',
+                        
+                        
+                        })
                 ]
             })
 
 
         ];
-        console.log([Validators.required])
         return questionControls.sort((a,b) => a.order - b.order);
     }
 }

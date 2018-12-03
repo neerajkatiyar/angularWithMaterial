@@ -2,7 +2,7 @@
 
 <button mat-button mat-raised-button color="primary" (click) = "addProduct()" type="button">Add Product</button>
 
-<div [formGroup] ="form">
+<div [formGroup] ="form" *ngIf="form.controls.product">
     <mat-grid-list cols="3" rowHeight="3:3.2">   
         <mat-grid-tile formArrayName="product" *ngFor="let product of form.controls.product.controls ; let i = index;">
             <div >

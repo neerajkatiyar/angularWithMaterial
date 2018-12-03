@@ -47,6 +47,7 @@ import { ControlRendererComponent } from './control-renderer/control-renderer.co
 import { QuestionsComponent } from './questions/questions.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 
 
@@ -74,6 +75,7 @@ import { DialogComponent } from './dialog/dialog.component';
     QuestionsComponent,
     AddProductComponent,
     DialogComponent,
+    StarRatingComponent,
   ],
   imports: [
     BrowserModule,
