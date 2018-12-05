@@ -52,8 +52,8 @@ export class TestQuestionservice{
                 label: 'Products',
                 order: 5,
                 value: 'Products',
-                //type: 'multiple',
-                children: [[
+                type: 'multiple',
+                children: [
                     new TextboxControl({
                         key: 'name',
                         label: 'Product Name',
@@ -68,17 +68,7 @@ export class TestQuestionservice{
                         validators:[Validators.required],
                         order: 2
                     })
-                ],
-                [
-                    new TextboxControl({
-                        key: 'name',
-                        label: 'Product Name',
-                        value: '',
-                        validators:[Validators.required],
-                        order: 2
-                    })
                 ]
-            ]
             })
 
 

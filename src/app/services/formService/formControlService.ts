@@ -11,12 +11,9 @@ export class FormControlService {
         return this.CreateFormGroup(controlsData);
     }
 
-    private CreateFormArray(controls: Array<ControlBase<any>[]>) {
-        let formArray: Array<FormGroup> = [];
-        controls.forEach(child=>{
-            formArray.push(this.CreateFormGroup(child));
-        });
-        return new FormArray(formArray);
+    private CreateFormArray(controls: ControlBase<any>[]) {
+        let formGroup: any = this.CreateFormGroup(controls);
+        return new FormArray([formGroup]);
     }
 
     private CreateFormGroup(controlsData: ControlBase<any>[]) {
@@ -29,7 +26,11 @@ export class FormControlService {
                 else if (c.controlType.toLowerCase() == "custom") {
                         if(c.children)
                         {
+                            if (c.type.toLowerCase() == "multiple") {
                                 group[c.key] = this.CreateFormArray(c.children);
+                            }
+                            // else
+                            //     group[c.key] = this.CreateFormGroup(c.children);
                         }
                         else{
                             group[c.key] = new FormControl(c.value, c.validators || []);

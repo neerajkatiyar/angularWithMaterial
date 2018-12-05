@@ -8,7 +8,7 @@ export class ControlBase<T>{
     order: number;
     controlType: string;
     type:string;
-    children: Array<ControlBase<T>[]>;
+    children: ControlBase<T>[];
     constructor(options: {
         value? : T,
         key?: string,
