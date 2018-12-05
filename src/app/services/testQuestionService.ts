@@ -4,7 +4,7 @@ import { TextboxControl } from '../models/formBuilder/controls/textboxControl';
 import {ButtonControl } from '../models/formBuilder/controls/buttonControl';
 import { Validators } from '@angular/forms';
 import {CustomControl} from '../models/formBuilder/controls/customControl';
-
+import {ControlGroup  } from '../models/formBuilder/controlGroup';
 
 export class TestQuestionservice{
     getQuestions(){
@@ -46,6 +46,10 @@ export class TestQuestionservice{
             //     value: "Add Company",
             //     type:"button"
             // }),
+
+            new ControlGroup({
+
+            }),
 
             new CustomControl({
                 key: 'product',

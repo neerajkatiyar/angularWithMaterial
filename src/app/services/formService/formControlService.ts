@@ -20,21 +20,28 @@ export class FormControlService {
         let group: any = {};
         if (controlsData && controlsData instanceof Array && controlsData.length > 0) {
             controlsData.forEach(c => {
-                if (c.controlType.toLowerCase() != 'button' && c.controlType.toLowerCase() != "custom") {
-                    group[c.key] = new FormControl(c.value, c.validators || []);
-                }
-                else if (c.controlType.toLowerCase() == "custom") {
-                        if(c.children)
-                        {
-                            if (c.type.toLowerCase() == "multiple") {
-                                group[c.key] = this.CreateFormArray(c.children);
-                            }
-                            // else
-                            //     group[c.key] = this.CreateFormGroup(c.children);
+                switch (c.controlType.toLowerCase()) {
+                    case "button": { }
+                        break;
+                    case "custom": {
+                        if (c.children) {
+                            group[c.key] = this.CreateFormGroup(c.children);
                         }
-                        else{
+                        else {
                             group[c.key] = new FormControl(c.value, c.validators || []);
-                        }                    
+                        }
+                    }
+                        break;
+                    case "controlgroup": {
+                        group[c.key] = this.CreateFormGroup(c.children);
+                    }
+                        break;
+                    case "controlgrouparray": {
+                        group[c.key] = this.CreateFormArray(c.children);
+                    }
+                        break;
+                    default: group[c.key] = new FormControl(c.value, c.validators || []);
+                        break;
                 }
             });
         }
