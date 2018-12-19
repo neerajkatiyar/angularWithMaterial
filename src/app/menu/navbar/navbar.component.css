@@ -61,6 +61,8 @@
     opacity: 1;
     -webkit-transform: translate3d(0, -541px, 0);
     transform: translate3d(0, -622px, 0);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.13);
+    -ms-user-select: none;
 }
 
 .nav-body-open{

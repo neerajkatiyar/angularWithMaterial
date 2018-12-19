@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Hero} from '../models/hero';
+import { Hero } from '../models/hero';
 
 
 @Component({
@@ -9,8 +9,8 @@ import {Hero} from '../models/hero';
 })
 export class HeroDetailComponent implements OnInit {
 
-  @Input() hero : Hero;
-  
+  @Input() hero: Hero;
+
   constructor() { }
 
   ngOnInit() {

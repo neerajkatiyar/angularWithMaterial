@@ -1,23 +1,23 @@
 import { ControlBase } from '../models/formBuilder/controlBase';
 import { DropdownContol } from '../models/formBuilder/controls/dropdownControl';
 import { TextboxControl } from '../models/formBuilder/controls/textboxControl';
-import {ButtonControl } from '../models/formBuilder/controls/buttonControl';
+import { ButtonControl } from '../models/formBuilder/controls/buttonControl';
 import { Validators } from '@angular/forms';
-import {CustomControl} from '../models/formBuilder/controls/customControl';
-import {ControlGroup  } from '../models/formBuilder/controlGroup';
+import { CustomControl } from '../models/formBuilder/controls/customControl';
+import { ControlGroup } from '../models/formBuilder/controlGroup';
 
-export class TestQuestionservice{
-    getQuestions(){
-        let questionControls : ControlBase<any>[] = [
+export class TestQuestionservice {
+    getQuestions() {
+        const questionControls: ControlBase<any>[] = [
             new DropdownContol({
                 key: 'brave',
                 label: 'Bravery Rating',
-                validators:[Validators.required],
-                options : [
-                    {key: 'Solid', value: 'Solid'},
-                    {key: 'Great', value: 'Great'},
-                    {key: 'good',   value: 'Good'},
-                    {key: 'unproven', value: 'Unproven'}
+                validators: [Validators.required],
+                options: [
+                    { key: 'Solid', value: 'Solid' },
+                    { key: 'Great', value: 'Great' },
+                    { key: 'good', value: 'Good' },
+                    { key: 'unproven', value: 'Unproven' }
                 ],
                 order: 3
 
@@ -27,14 +27,14 @@ export class TestQuestionservice{
                 key: 'firstName',
                 label: 'First Name',
                 value: 'Bombasto',
-                validators:[Validators.required],
+                validators: [Validators.required],
                 order: 1
             }),
 
             new TextboxControl({
                 key: 'emailAddress',
                 label: 'Email',
-                validators:[Validators.required,Validators.email],
+                validators: [Validators.required, Validators.email],
                 order: 2,
                 required: true
             }),
@@ -62,14 +62,14 @@ export class TestQuestionservice{
                         key: 'name',
                         label: 'Product Name',
                         value: '',
-                        validators:[Validators.required],
+                        validators: [Validators.required],
                         order: 1
                     }),
                     new TextboxControl({
                         key: 'description',
                         label: 'Product Description',
                         value: '',
-                        validators:[Validators.required],
+                        validators: [Validators.required],
                         order: 2
                     })
                 ]
@@ -77,6 +77,6 @@ export class TestQuestionservice{
 
 
         ];
-        return questionControls.sort((a,b) => a.order - b.order);
+        return questionControls.sort((a, b) => a.order - b.order);
     }
 }
