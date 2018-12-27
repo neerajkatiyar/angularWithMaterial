@@ -9,7 +9,7 @@ import { TestQuestionservice } from '../services/testQuestionService';
 })
 export class QuestionsComponent implements OnInit {
 
-  questionControls : any[];
+  questionControls : {};
   constructor(tqs: TestQuestionservice) {
     this.questionControls = tqs.getQuestions();
    }

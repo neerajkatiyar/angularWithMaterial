@@ -7,46 +7,42 @@ import { ControlBase } from '../../models/formBuilder/controlBase';
 export class FormControlService {
     constructor() { }
 
-    toFormGroup(controlsData: ControlBase<any>[]) {
-        return this.CreateFormGroup(controlsData);
+    toFormGroup(formData: {}) {
+        return this.CreateFormGroup(formData);
     }
 
-    private CreateFormArray(controls: ControlBase<any>[]) {
-        let formGroup: any = this.CreateFormGroup(controls);
-        return new FormArray([formGroup]);
+    private CreateFormArray(formArray: [{}]) {
+        let formGroupArray: any =[]
+        if (formArray) {
+            formArray.forEach(x => {
+                formGroupArray.push(this.CreateFormGroup(x));
+            });
+        }
+        return new FormArray(formGroupArray);
     }
 
-    private CreateFormGroup(controlsData: ControlBase<any>[]) {
+    private CreateFormGroup(formData: {}) : FormGroup {
         let group: any = {};
-        if (controlsData && controlsData instanceof Array && controlsData.length > 0) {
-            controlsData.forEach(c => {
-                switch (c.controlType.toLowerCase()) {
-                    case "button": { }
-                        break;
-                    case "custom": {
-                        if (c.children) {
-                            group[c.key] = this.CreateFormGroup(c.children);
-                        }
-                        else {
-                            group[c.key] = new FormControl(c.value, c.validators || []);
-                        }
+        if (formData) {
+            Object.keys(formData).forEach(p => {
+
+                if (p && p.toUpperCase() !== "FORMGROUPINFO" && !(formData[p] instanceof Array)) {
+                    if (!formData[p].formGroupInfo) {
+                        group[p] = new FormControl(formData[p].value, formData[p].validators || []);
                     }
-                        break;
-                    case "controlgroup": {
-                        group[c.key] = this.CreateFormGroup(c.children);
+                    else {
+                        group[p] = this.CreateFormGroup(formData[p]);
                     }
-                        break;
-                    case "controlgrouparray": {
-                        group[c.key] = this.CreateFormArray(c.children);
-                    }
-                        break;
-                    default: group[c.key] = new FormControl(c.value, c.validators || []);
-                        break;
+                }
+                else if((formData[p] instanceof Array)) {
+                    group[p] = this.CreateFormArray(formData[p]);
                 }
             });
         }
         return new FormGroup(group);
     }
+
+
 
 
     insertInFormArray(fa: FormArray, controls: ControlBase<any>[]) {

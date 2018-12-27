@@ -8,9 +8,15 @@ import { ControlGroup } from '../models/formBuilder/controlGroup';
 
 export class TestQuestionservice {
     getQuestions() {
-        const questionControls: ControlBase<any>[] = [
-            new DropdownContol({
-                key: 'brave',
+        const questionControls = {
+            formGroupInfo:{
+                type: 'cust',
+                renderingInfo:{
+                    //additional rendering info goes here...like css, html and control design etc.
+                }
+            },
+            braveryRating: new DropdownContol({
+                key: 'braveryRating',
                 label: 'Bravery Rating',
                 validators: [Validators.required],
                 options: [
@@ -23,7 +29,7 @@ export class TestQuestionservice {
 
             }),
 
-            new TextboxControl({
+            firstName: new TextboxControl({
                 key: 'firstName',
                 label: 'First Name',
                 value: 'Bombasto',
@@ -31,7 +37,7 @@ export class TestQuestionservice {
                 order: 1
             }),
 
-            new TextboxControl({
+            emailAddress: new TextboxControl({
                 key: 'emailAddress',
                 label: 'Email',
                 validators: [Validators.required, Validators.email],
@@ -47,36 +53,82 @@ export class TestQuestionservice {
             //     type:"button"
             // }),
 
-            new ControlGroup({
+            // new ControlGroup({
 
-            }),
+            // }),
 
-            new CustomControl({
-                key: 'product',
-                label: 'Products',
-                order: 5,
-                value: 'Products',
-                type: 'multiple',
-                children: [
-                    new TextboxControl({
+            product: {
+                   formGroupInfo:{
+                       type: 'product',
+                       renderingInfo:{
+                           //additional rendering info goes here...like css, html and control design etc.
+                       }
+                   },
+                   name: new TextboxControl({
                         key: 'name',
                         label: 'Product Name',
                         value: '',
                         validators: [Validators.required],
                         order: 1
                     }),
-                    new TextboxControl({
+                  description:  new TextboxControl({
                         key: 'description',
                         label: 'Product Description',
                         value: '',
                         validators: [Validators.required],
                         order: 2
-                    })
-                ]
-            })
+                    })               
+                 
+            },
+            products: [{
+                formGroupInfo:{
+                    type: 'product',
+                    renderingInfo:{
+                        //additional rendering info goes here...like css, html and control design etc.
+                    }
+                },
+                name: new TextboxControl({
+                     key: 'name',
+                     label: 'Product Name',
+                     value: '',
+                     validators: [Validators.required],
+                     order: 1
+                 }),
+               description:  new TextboxControl({
+                     key: 'description',
+                     label: 'Product Description',
+                     value: '',
+                     validators: [Validators.required],
+                     order: 2
+                 })               
+              
+         },
+         {
+            formGroupInfo:{
+                type: 'product',
+                renderingInfo:{
+                    //additional rendering info goes here...like css, html and control design etc.
+                }
+            },
+            name: new TextboxControl({
+                 key: 'name',
+                 label: 'Product Name',
+                 value: '',
+                 validators: [Validators.required],
+                 order: 1
+             }),
+           description:  new TextboxControl({
+                 key: 'description',
+                 label: 'Product Description',
+                 value: '',
+                 validators: [Validators.required],
+                 order: 2
+             })               
+          
+        }]
 
 
-        ];
-        return questionControls.sort((a, b) => a.order - b.order);
+        }
+        return questionControls; //.sort((a, b) => a.order - b.order);
     }
 }

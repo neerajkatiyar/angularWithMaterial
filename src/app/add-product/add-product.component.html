@@ -1,10 +1,9 @@
 <hr/>
-
 <button mat-button mat-raised-button color="primary" (click) = "addProduct()" type="button">Add Product</button>
 
-<div [formGroup] ="form" *ngIf="form.controls.product">
+<div [formGroup] ="form" >
     <mat-grid-list cols="3" rowHeight="3:3.2">   
-        <mat-grid-tile formArrayName="product" *ngFor="let product of form.controls.product.controls ; let i = index;">
+        <mat-grid-tile formArrayName="product" *ngFor="let product of form.controls.products.controls ; let i = index;">
             <div >
                 <div>
                     <mat-card class="product-card">
@@ -18,7 +17,7 @@
                         </div>
                         <mat-card-content>
                              <!-- app-form-renderer takes formGroup -->
-                             <app-form-renderer  [form] = "product" [controls] = "productControls"></app-form-renderer>
+                             <app-form-renderer  [form] = "product" [controls] = "controlGroup"></app-form-renderer>
                         </mat-card-content>
                         <mat-card-actions>
                           <button mat-button type="button">LIKE</button>

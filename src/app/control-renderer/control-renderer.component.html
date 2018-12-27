@@ -1,6 +1,5 @@
 <div [formGroup] = "form">
   <!-- <label [attr.for] = "control.key" *ngIf="control.label != 'n/a'">{{control.label}}</label> -->
-
   <div [ngSwitch] = "control.controlType">
       <div class="form-control" *ngSwitchCase = "'textbox'">
 
@@ -24,13 +23,14 @@
       <div class="form-control" *ngSwitchCase = "'button'">
         <button mat-button mat-raised-button color="primary" [id] ="control.key" [type] = "control.type">{{control.value}}</button>
       </div>
-      <div *ngSwitchCase = "'custom'">
-        <div [ngSwitch] = "control.key">
-            <div *ngSwitchCase ="'product'">
-              <app-add-product [form] ="form"  [multiple] ="control.type" [productControls] = "control.children"></app-add-product>
-            </div>
-        </div>
-      </div>
+    
   </div>
+  <div *ngIf="control.formGroupInfo">
+      <div [ngSwitch] = "control.formGroupInfo.type | lowercase ">
+          <div *ngSwitchCase ="'product'">
+            <app-add-product [form] ="form" [controlGroup] = "control"></app-add-product>
+          </div>
+      </div>
+    </div>
   <!-- <mat-error *ngIf="!isValid" >{{control.label}} is required</mat-error> -->
 </div>

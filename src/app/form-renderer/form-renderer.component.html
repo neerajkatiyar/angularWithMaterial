@@ -1,7 +1,7 @@
 <div>
   <form (ngSubmit) = "onSubmit()" [formGroup] ="form" novalidate>
-    <div *ngFor = "let control of controls" class = "form-row">
-      <app-control-renderer [control] ="control" [form]= "form"></app-control-renderer>
+    <div *ngFor = "let c of controls  | keyvalue" class = "form-row">
+      <app-control-renderer [control] ="c.value" [form]= "form"></app-control-renderer>
     </div>
     <div class = "form-row">
       <button mat-button mat-raised-button color="primary" type = "submit" [disabled] ="!form.valid">Save</button>
