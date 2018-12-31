@@ -10,11 +10,12 @@ import { FormControlService } from '../services/formService/formControlService';
 })
 export class AddProductComponent implements OnInit {
   @Input() controlGroup :  {};
+  @Input() controlGroupName: string;
   @Input() form : FormGroup;
   constructor(private fcs : FormControlService) { }
 
 
-  ngOnInit() {console.log(this.form) }
+  ngOnInit() {}
     
   addProduct()
   {

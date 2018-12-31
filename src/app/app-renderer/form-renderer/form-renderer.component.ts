@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ControlBase } from '../models/formBuilder/controlBase';
+import { ControlBase } from '../../models/formBuilder/controlBase';
 import { FormGroup } from '@angular/forms';
-import { FormControlService } from '../services/formService/formControlService';
+import { FormControlService } from '../../services/formService/formControlService';
 
 @Component({
   selector: 'app-form-renderer',

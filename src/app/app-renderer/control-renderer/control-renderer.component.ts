@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ControlBase } from '../models/formBuilder/controlBase';
+import { ControlBase } from '../../models/formBuilder/controlBase';
 import { FormGroup } from '@angular/forms';
 import { ValidationErrors, ValidatorFn } from "@angular/forms";
 
@@ -10,6 +10,7 @@ import { ValidationErrors, ValidatorFn } from "@angular/forms";
 })
 export class ControlRendererComponent{
   @Input() control : ControlBase<any>;
+  @Input() controlName: string;
   @Input() form: FormGroup;
 
   get isValid(){

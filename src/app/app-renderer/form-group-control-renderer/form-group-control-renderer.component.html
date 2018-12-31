@@ -1,0 +1,5 @@
+<div [ngSwitch] = "controlGroup.formGroupInfo.type | lowercase ">
+    <div *ngSwitchCase ="'product'">
+      <app-add-product [form] ="form" [controlGroup] = "controlGroup"></app-add-product>
+    </div>
+</div>

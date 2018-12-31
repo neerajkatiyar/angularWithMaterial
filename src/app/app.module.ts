@@ -42,12 +42,14 @@ import { AppRoutingModule } from '../app/appRoutes/appRoutingModule';
 
 import { ClickOutsideDirective } from '../app/directives/clickOutsideDiv';
 import { NavbarContentComponent } from '../app/menu/navbar-content/navbar-content.component';
-import { FormRendererComponent } from './form-renderer/form-renderer.component';
-import { ControlRendererComponent } from './control-renderer/control-renderer.component';
+import { FormRendererComponent } from '../app/app-renderer/form-renderer/form-renderer.component';
+import { ControlRendererComponent } from './app-renderer/control-renderer/control-renderer.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
+import { FormControlRendererComponent } from './app-renderer/form-control-renderer/form-control-renderer.component';
+import { FormGroupControlRendererComponent } from './app-renderer/form-group-control-renderer/form-group-control-renderer.component';
 
 
 
@@ -76,6 +78,8 @@ import { StarRatingComponent } from './star-rating/star-rating.component';
     AddProductComponent,
     DialogComponent,
     StarRatingComponent,
+    FormControlRendererComponent,
+    FormGroupControlRendererComponent,
   ],
   imports: [
     BrowserModule,

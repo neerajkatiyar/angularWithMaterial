@@ -1,0 +1,21 @@
+<div [formGroup]="form">
+  <!-- <label [attr.for] = "control.key" *ngIf="control.label != 'n/a'">{{control.label}}</label> -->
+
+  <!--Rendering Formcontrol here-->
+  <div *ngIf="!control.formGroupInfo">
+    <app-form-control-renderer  [form]="form" [control]="control"></app-form-control-renderer>
+  </div>
+
+  <!---Rendering FormGroup here-->
+  <div *ngIf="control.formGroupInfo">
+    <app-form-group-control-renderer  [form]="form.controls[controlName]" [controlGroup]="control"></app-form-group-control-renderer>
+  </div>
+
+  <!--Rendering FormArray here-->
+  <!--Checking if it's an controls array-->
+  <div *ngIf="control.push && form.controls[controlName]">
+    <div  formArrayName="{{controlName}}"  *ngFor="let controlGroup of control; let i = index;">
+      <app-form-group-control-renderer [form]="form.controls[controlName].controls[i]" [controlGroup]="controlGroup"></app-form-group-control-renderer>
+    </div>
+  </div> 
+</div>

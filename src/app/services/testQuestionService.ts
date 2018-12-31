@@ -77,7 +77,9 @@ export class TestQuestionservice {
                         value: '',
                         validators: [Validators.required],
                         order: 2
-                    })               
+                    }),
+                    imagePath:"/assets/images/cover_img0.jpg",
+                    testArray: ["343","999","9i898"]           
                  
             },
             products: [{
@@ -100,7 +102,9 @@ export class TestQuestionservice {
                      value: '',
                      validators: [Validators.required],
                      order: 2
-                 })               
+                 }),
+                 imagePath:"/assets/images/cover_img1.jpg" ,
+                 testArray: ["343","999","9i898"]                 
               
          },
          {
@@ -123,7 +127,9 @@ export class TestQuestionservice {
                  value: '',
                  validators: [Validators.required],
                  order: 2
-             })               
+             }),
+             imagePath:"/assets/images/cover_img2.jpg" ,
+             testArray: ["343","999","9i898"]                    
           
         }]
 

@@ -1,10 +1,11 @@
 <div>
   <form (ngSubmit) = "onSubmit()" [formGroup] ="form" novalidate>
     <div *ngFor = "let c of controls  | keyvalue" class = "form-row">
-      <app-control-renderer [control] ="c.value" [form]= "form"></app-control-renderer>
+      <app-control-renderer [control] ="c.value" [controlName]="c.key" [form]= "form"></app-control-renderer>
     </div>
     <div class = "form-row">
       <button mat-button mat-raised-button color="primary" type = "submit" [disabled] ="!form.valid">Save</button>
+      {{form.valid}}
     </div>
   </form>
 

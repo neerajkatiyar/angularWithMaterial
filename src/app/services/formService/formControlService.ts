@@ -12,30 +12,37 @@ export class FormControlService {
     }
 
     private CreateFormArray(formArray: [{}]) {
-        let formGroupArray: any =[]
+        let formGroupArray: any = []
         if (formArray) {
             formArray.forEach(x => {
-                formGroupArray.push(this.CreateFormGroup(x));
+                if (x instanceof Object && (x as any).formGroupInfo)
+                    formGroupArray.push(this.CreateFormGroup(x));
             });
+            if (formGroupArray.length == 0) {
+                return formArray;
+            }
         }
         return new FormArray(formGroupArray);
     }
 
-    private CreateFormGroup(formData: {}) : FormGroup {
+    private CreateFormGroup(formData: {}): FormGroup {
         let group: any = {};
         if (formData) {
             Object.keys(formData).forEach(p => {
 
                 if (p && p.toUpperCase() !== "FORMGROUPINFO" && !(formData[p] instanceof Array)) {
-                    if (!formData[p].formGroupInfo) {
+                    if (formData[p].key) {
                         group[p] = new FormControl(formData[p].value, formData[p].validators || []);
                     }
-                    else {
+                    else if (formData[p].formGroupInfo) {
                         group[p] = this.CreateFormGroup(formData[p]);
                     }
                 }
-                else if((formData[p] instanceof Array)) {
-                    group[p] = this.CreateFormArray(formData[p]);
+                else if ((formData[p] instanceof Array)) {
+                    var fa = this.CreateFormArray(formData[p]);
+                    if (fa instanceof FormArray) {
+                        group[p] = fa;
+                    }
                 }
             });
         }
