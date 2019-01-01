@@ -13,6 +13,7 @@ export class TestQuestionservice {
                 type: 'cust',
                 renderingInfo:{
                     //additional rendering info goes here...like css, html and control design etc.
+                    products : {controlType:"custom"}
                 }
             },
             braveryRating: new DropdownContol({
