@@ -1,0 +1,26 @@
+<div [formGroup] ="form">
+  <mat-grid-list cols="3" rowHeight="3:3.2">
+      <mat-grid-tile formArrayName = "{{controlArrayName}}" *ngFor="let fg of form.controls[controlArrayName].controls; let i= index;">
+          <div>
+                  <mat-card class="product-card">
+                      <mat-card-header>
+                          <div mat-card-avatar class="example-header-image"></div>
+                          <mat-card-title>Add Product</mat-card-title>
+                          <mat-card-subtitle>~dynamically</mat-card-subtitle>
+                      </mat-card-header>
+                      <div class="product-image">
+                          <img mat-card-image src="{{controlArray[i].imagePath}}" alt="Photo...........~~">
+                      </div>
+                      <mat-card-content>
+                          <!-- app-form-renderer takes formGroup -->
+                          <app-form-renderer [form]="fg" [controls]="controlArray[i]"></app-form-renderer>
+                      </mat-card-content>
+                      <mat-card-actions>
+                          <button mat-button type="button">LIKE</button>
+                          <button mat-button type="button">SHARE</button>
+                      </mat-card-actions>
+                  </mat-card>
+          </div>
+      </mat-grid-tile>
+  </mat-grid-list>
+</div>

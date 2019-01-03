@@ -1,0 +1,5 @@
+<div [ngSwitch] = "renderingInfo.dataType | lowercase ">
+  <div *ngSwitchCase ="'products'">
+    <app-products [form] ="form" [controlArrayName] = "controlArrayName" [controlArray] ="controlArray"></app-products>
+  </div>
+</div>

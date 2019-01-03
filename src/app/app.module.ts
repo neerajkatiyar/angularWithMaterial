@@ -50,6 +50,8 @@ import { DialogComponent } from './dialog/dialog.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { FormControlRendererComponent } from './app-renderer/form-control-renderer/form-control-renderer.component';
 import { FormGroupControlRendererComponent } from './app-renderer/form-group-control-renderer/form-group-control-renderer.component';
+import { CustomArrayControlRendererComponent } from './app-renderer/custom-array-control-renderer/custom-array-control-renderer.component';
+import { ProductsComponent } from './products/products.component';
 
 
 
@@ -80,6 +82,8 @@ import { FormGroupControlRendererComponent } from './app-renderer/form-group-con
     StarRatingComponent,
     FormControlRendererComponent,
     FormGroupControlRendererComponent,
+    CustomArrayControlRendererComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,

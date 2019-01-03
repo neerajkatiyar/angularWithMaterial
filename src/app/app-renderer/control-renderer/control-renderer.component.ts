@@ -13,6 +13,9 @@ export class ControlRendererComponent{
   @Input() controlName: string;
   @Input() form: FormGroup;
   @Input() controlRenderingInfo: {};
+  constructor(){
+   
+  }
 
   get isValid(){
     return  this.control.validators ? this.form.controls[this.control.key].valid : true;

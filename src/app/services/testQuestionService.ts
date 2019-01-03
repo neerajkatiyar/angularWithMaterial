@@ -4,7 +4,6 @@ import { TextboxControl } from '../models/formBuilder/controls/textboxControl';
 import { ButtonControl } from '../models/formBuilder/controls/buttonControl';
 import { Validators } from '@angular/forms';
 import { CustomControl } from '../models/formBuilder/controls/customControl';
-import { ControlGroup } from '../models/formBuilder/controlGroup';
 
 export class TestQuestionservice {
     getQuestions() {
@@ -13,7 +12,7 @@ export class TestQuestionservice {
                 type: 'cust',
                 renderingInfo:{
                     //additional rendering info goes here...like css, html and control design etc.
-                    products : {controlType:"custom"}
+                    products : {controlType:"custom", dataType: 'products'}
                 }
             },
             braveryRating: new DropdownContol({

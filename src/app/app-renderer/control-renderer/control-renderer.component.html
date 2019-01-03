@@ -18,9 +18,7 @@
     <div *ngIf="controlRenderingInfo && controlRenderingInfo[controlName] && controlRenderingInfo[controlName].controlType =='custom'; then custom else default"></div>
 
     <ng-template #custom>
-      <div formArrayName="{{controlName}}" *ngFor="let controlGroup of control; let i = index;">
-        <app-form-group-control-renderer [form]="form.controls[controlName].controls[i]" [controlGroup]="controlGroup"></app-form-group-control-renderer>
-      </div>
+        <app-custom-array-control-renderer [form]="form" [controlArray] = "control" [controlArrayName]="controlName" [renderingInfo] = "controlRenderingInfo[controlName]"></app-custom-array-control-renderer>
     </ng-template>
 
     <ng-template #default>
