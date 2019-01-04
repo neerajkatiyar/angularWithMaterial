@@ -7,7 +7,7 @@ export class ControlBase<T>{
     validators: ValidatorFn[];
     order: number;
     controlType: string;
-    type:string;
+    type:any;
     children: ControlBase<T>[];
     constructor(options: {
         value? : T,

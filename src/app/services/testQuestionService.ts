@@ -4,6 +4,7 @@ import { TextboxControl } from '../models/formBuilder/controls/textboxControl';
 import { ButtonControl } from '../models/formBuilder/controls/buttonControl';
 import { Validators } from '@angular/forms';
 import { CustomControl } from '../models/formBuilder/controls/customControl';
+import { CheckboxControl } from '../models/formBuilder/controls/checkbox';
 
 export class TestQuestionservice {
     getQuestions() {
@@ -79,7 +80,12 @@ export class TestQuestionservice {
                         order: 2
                     }),
                     imagePath:"/assets/images/cover_img0.jpg",
-                    testArray: ["343","999","9i898"]           
+                    testArray: ["343","999","9i898"],
+                    imported: new CheckboxControl({
+                        key : 'imported',
+                        label: 'Is Imported',
+                        value: false,
+                    })           
                  
             },
             products: [{
