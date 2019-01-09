@@ -5,6 +5,7 @@ import { ButtonControl } from '../models/formBuilder/controls/buttonControl';
 import { Validators } from '@angular/forms';
 import { CustomControl } from '../models/formBuilder/controls/customControl';
 import { CheckboxControl } from '../models/formBuilder/controls/checkbox';
+import { DatePickerControl } from '../models/formBuilder/controls/datepicker';
 
 export class TestQuestionservice {
     getQuestions() {
@@ -85,6 +86,12 @@ export class TestQuestionservice {
                         key : 'imported',
                         label: 'Is Imported',
                         value: false,
+                    }),
+                    importedDate: new DatePickerControl({
+                        key: 'importedDate',
+                        label: 'Imported Date',
+                        value: null,
+                        validators: [Validators.required]
                     })           
                  
             },
@@ -139,7 +146,14 @@ export class TestQuestionservice {
           
         }]
 
-
+            ,
+            save : new ButtonControl({
+                key: 'save',
+                label: 'n/a',
+                order: 4,
+                value: "Save Data",
+                type:"submit"
+            })
         }
         return questionControls; //.sort((a, b) => a.order - b.order);
     }

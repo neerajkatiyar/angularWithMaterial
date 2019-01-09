@@ -3,13 +3,9 @@
     <div *ngFor = "let c of controls  | keyvalue" class = "form-row">
       <app-control-renderer [control] ="c.value" [controlName]="c.key" [controlRenderingInfo] = "controls.formGroupInfo.renderingInfo" [form]= "form"></app-control-renderer>
     </div>
-    <div class = "form-row">
-      <button mat-button mat-raised-button color="primary" type = "submit" [disabled] ="!form.valid">Save</button>
-      {{form.valid}}
-    </div>
   </form>
 
-  <div *ngIf ="payLoad" class ="form-row">
+  <!-- <div *ngIf ="payLoad" class ="form-row">
     <strong>Saved the following values</strong> <br/> {{payLoad}}
-  </div>
+  </div> -->
 </div>

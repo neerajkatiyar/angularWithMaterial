@@ -13,8 +13,6 @@ export class ProductsComponent implements OnInit {
   @Input() controlArray: any[];
   constructor() {  }
 
-  ngOnInit() {
-    console.log("under controlArrayName: " + this.controlArrayName);
-  }
+  ngOnInit() {}
 
 }

@@ -2,7 +2,7 @@
   <!-- <label [attr.for] = "control.key" *ngIf="control.label != 'n/a'">{{control.label}}</label> -->
 
   <!--Rendering Formcontrol here-->
-  <div *ngIf="!control.formGroupInfo">
+  <div *ngIf="!control.formGroupInfo && control.controlType">
     <app-form-control-renderer [form]="form" [control]="control"></app-form-control-renderer>
   </div>
 
@@ -15,8 +15,8 @@
   <!--Checking if it's an controls array-->
   <div *ngIf="control.push && form.controls[controlName]">
     <!--Rendering Custom designed arrays-->
-    <div *ngIf="controlRenderingInfo && controlRenderingInfo[controlName] && controlRenderingInfo[controlName].controlType =='custom'; then custom else default"></div>
-
+    <div *ngIf="controlRenderingInfo && controlRenderingInfo[controlName] && controlRenderingInfo[controlName].controlType =='custom'; then custom else default">
+    </div>
     <ng-template #custom>
         <app-custom-array-control-renderer [form]="form" [controlArray] = "control" [controlArrayName]="controlName" [renderingInfo] = "controlRenderingInfo[controlName]"></app-custom-array-control-renderer>
     </ng-template>
@@ -26,6 +26,5 @@
         <app-form-group-control-renderer [form]="form.controls[controlName].controls[i]" [controlGroup]="controlGroup"></app-form-group-control-renderer>
       </div>
     </ng-template>
-
   </div>
 </div>

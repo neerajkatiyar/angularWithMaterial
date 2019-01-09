@@ -2,19 +2,17 @@
   <div [ngSwitch]="control.controlType">
     <div class="form-control" *ngSwitchCase="'textbox'">
       <mat-form-field class="example-full-width">
-        <input matInput [placeholder]="control.label" [formControlName]="control.key" [id]="control.key" [type]="control.type">
+        <input matInput [placeholder]="control.label" [formControlName]="control.key" [id]="control.key" [type]="control.type" [required]="form.controls[control.key].errors && form.controls[control.key].errors.required">
       </mat-form-field>
     </div>
 
-    <div class="form-control" *ngSwitchCase="'checkbox'">
-      <mat-form-field class="example-full-width">
-        <mat-checkbox class="example-margin" [formControlName]="control.key">{{control.label}}</mat-checkbox>
-      </mat-form-field>
+    <div class="form-control" *ngSwitchCase="'checkbox'">      
+        <mat-checkbox  class="example-full-width" [formControlName]="control.key">{{control.label}}</mat-checkbox>     
     </div>
 
     <div class="form-control" *ngSwitchCase="'dropdown'">
       <mat-form-field>
-        <mat-select [id]="control.key" [placeholder]="control.label" [formControlName]="control.key" required>
+        <mat-select [id]="control.key" [placeholder]="control.label" [formControlName]="control.key"  [required]="form.controls[control.key].errors && form.controls[control.key].errors.required">
           <mat-option>--</mat-option>
           <mat-option *ngFor="let opt of control.options" [value]="opt.value">
             {{opt.key}}
@@ -23,8 +21,24 @@
       </mat-form-field>
     </div>
 
+    <div class="form-control" *ngSwitchCase="'datepicker'">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" [formControlName]="control.key" [placeholder]="control.label">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control" *ngSwitchCase="'timepicker'">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" [formControlName]="control.key" [placeholder]="control.label">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
     <div class="form-control" *ngSwitchCase="'button'">
-      <button mat-button mat-raised-button color="primary" [id]="control.key" [type]="control.type">{{control.value}}</button>
+      <button mat-button mat-raised-button color="primary" [id]="control.key" [type]="control.type"  [disabled] ="!form.valid">{{control.value}}</button>
     </div>
   </div>
 </div>
