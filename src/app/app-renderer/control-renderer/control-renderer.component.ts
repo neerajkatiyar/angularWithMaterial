@@ -8,16 +8,31 @@ import { ValidationErrors, ValidatorFn } from "@angular/forms";
   templateUrl: './control-renderer.component.html',
   styleUrls: ['./control-renderer.component.css']
 })
-export class ControlRendererComponent{
-  @Input() control : ControlBase<any>;
+export class ControlRendererComponent {
+  @Input() control: ControlBase<any>;
   @Input() controlName: string;
   @Input() form: FormGroup;
   @Input() controlRenderingInfo: {};
-  constructor(){
-   
+  constructor() {
+
   }
 
-  get isValid(){
-    return  this.control.validators ? this.form.controls[this.control.key].valid : true;
+  get isValid() {
+    return this.control.validators ? this.form.controls[this.control.key].valid : true;
+  }
+
+  visible(controlName) {
+    if (this.controlRenderingInfo[controlName] && this.controlRenderingInfo[controlName].visible) {
+      let v = eval(this.controlRenderingInfo[controlName].visible)
+
+      if (v) {
+        this.form.get(controlName).enable();
+      }
+      else {
+        this.form.get(controlName).disable();
+      }
+      return v;
+    }
+    return true;
   }
 }

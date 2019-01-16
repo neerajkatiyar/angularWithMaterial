@@ -63,7 +63,8 @@ export class TestQuestionservice {
                    formGroupInfo:{
                        type: 'product',
                        renderingInfo:{
-                           //additional rendering info goes here...like css, html and control design etc.
+                           //additional rendering info goes here...like css, html and control design, visibility etc.
+                           importedDate:{visible:"this.form.controls.imported.value == true"}
                        }
                    },
                    name: new TextboxControl({

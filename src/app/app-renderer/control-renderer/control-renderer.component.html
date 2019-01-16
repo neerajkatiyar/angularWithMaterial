@@ -3,7 +3,7 @@
 
   <!--Rendering Formcontrol here-->
   <div *ngIf="!control.formGroupInfo && control.controlType">
-    <app-form-control-renderer [form]="form" [control]="control"></app-form-control-renderer>
+    <app-form-control-renderer [form]="form" [control]="control" *ngIf= "visible(controlName)"></app-form-control-renderer>
   </div>
 
   <!---Rendering FormGroup here-->
