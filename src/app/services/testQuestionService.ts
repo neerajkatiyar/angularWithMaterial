@@ -14,7 +14,7 @@ export class TestQuestionservice {
                 type: 'cust',
                 renderingInfo:{
                     //additional rendering info goes here...like css, html and control design etc.
-                    products : {controlType:"custom", dataType: 'products', visibility : 'this.form.controls.firstName.value == "products"'}
+                    products : {controlType:"custom", dataType: 'products', visibility : 'this.form.controls.firstName.value == "products"', disabled: "!this.form.controls.emailAddress.value"}
                 }
             },
             braveryRating: new DropdownContol({

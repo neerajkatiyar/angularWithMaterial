@@ -9,16 +9,16 @@
   </div>
 
   <!---Rendering FormGroup here-->
-  <div #element>
-    <div *ngIf="control.formGroupInfo && visible(controlName, element)">
+  <div #eleFG>
+    <div *ngIf="control.formGroupInfo && visible(controlName, eleFG)">
       <app-form-group-control-renderer [form]="form.controls[controlName]" [controlGroup]="control"></app-form-group-control-renderer>
     </div>
   </div>
 
   <!--Rendering FormArray here-->
   <!--Checking if it's an controls array-->
-  <div #element>
-    <div  *ngIf="control.push && form.controls[controlName] && visible(controlName, element)">
+  <div #eleFA>
+    <div  *ngIf="control.push && form.controls[controlName] && visible(controlName, eleFA)">
       <!--Rendering Custom designed arrays-->
       <div *ngIf="controlRenderingInfo && controlRenderingInfo[controlName] && controlRenderingInfo[controlName].controlType =='custom'; then custom else default">
       </div>

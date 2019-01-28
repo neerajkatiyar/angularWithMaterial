@@ -24,8 +24,8 @@ export class ControlRendererComponent implements AfterViewChecked {
 
   visible(controlName, element: HTMLElement) {
     if (this.controlRenderingInfo[controlName] && (this.controlRenderingInfo[controlName].visibility  || this.controlRenderingInfo[controlName].disabled)) {
-      let isVisible = eval(this.controlRenderingInfo[controlName].visibility)
-      let isDisabled = eval(this.controlRenderingInfo[controlName].disabled)
+      let isVisible = this.controlRenderingInfo[controlName].visibility ? eval(this.controlRenderingInfo[controlName].visibility) : true;
+      let isDisabled = this.controlRenderingInfo[controlName].disabled ? eval(this.controlRenderingInfo[controlName].disabled) : false;
       if (isVisible && !isDisabled) {
         if (element.hasClass("disabled")) {
           element.removeClass("disabled");
@@ -40,7 +40,7 @@ export class ControlRendererComponent implements AfterViewChecked {
         
       }
       
-      return isVisible;
+      return  isVisible;
     }
     return true;
   }
