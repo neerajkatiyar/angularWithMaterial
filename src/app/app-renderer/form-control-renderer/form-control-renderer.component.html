@@ -23,7 +23,7 @@
 
     <div class="form-control" *ngSwitchCase="'datepicker'">
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" [formControlName]="control.key" [placeholder]="control.label">
+        <input matInput [matDatepicker]="picker" [formControlName]="control.key" [placeholder]="control.label"  [required]="form.controls[control.key].errors && form.controls[control.key].errors.required">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>

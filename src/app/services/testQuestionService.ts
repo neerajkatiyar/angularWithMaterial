@@ -14,7 +14,7 @@ export class TestQuestionservice {
                 type: 'cust',
                 renderingInfo:{
                     //additional rendering info goes here...like css, html and control design etc.
-                    products : {controlType:"custom", dataType: 'products'}
+                    products : {controlType:"custom", dataType: 'products', visibility : 'this.form.controls.firstName.value == "products"'}
                 }
             },
             braveryRating: new DropdownContol({
@@ -64,7 +64,7 @@ export class TestQuestionservice {
                        type: 'product',
                        renderingInfo:{
                            //additional rendering info goes here...like css, html and control design, visibility etc.
-                           importedDate:{visible:"this.form.controls.imported.value == true"}
+                           importedDate:{visibility:"this.form.controls.imported.value == true", disabled: "this.form.controls.name.value  == ''"}
                        }
                    },
                    name: new TextboxControl({
