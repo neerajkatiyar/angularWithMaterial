@@ -1,2 +1,2 @@
-# angularWithMaterial
-angular six demo app with angular material design
+# Spread
+we have changed the name to Spread
