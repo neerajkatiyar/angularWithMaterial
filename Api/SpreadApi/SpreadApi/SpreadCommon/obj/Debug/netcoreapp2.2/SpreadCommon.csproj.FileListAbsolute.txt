@@ -1,0 +1,9 @@
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadCommon\bin\Debug\netcoreapp2.2\SpreadCommon.deps.json
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadCommon\bin\Debug\netcoreapp2.2\SpreadCommon.dll
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadCommon\bin\Debug\netcoreapp2.2\SpreadCommon.pdb
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadCommon\obj\Debug\netcoreapp2.2\SpreadCommon.csprojAssemblyReference.cache
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadCommon\obj\Debug\netcoreapp2.2\SpreadCommon.csproj.CoreCompileInputs.cache
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadCommon\obj\Debug\netcoreapp2.2\SpreadCommon.AssemblyInfoInputs.cache
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadCommon\obj\Debug\netcoreapp2.2\SpreadCommon.AssemblyInfo.cs
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadCommon\obj\Debug\netcoreapp2.2\SpreadCommon.dll
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadCommon\obj\Debug\netcoreapp2.2\SpreadCommon.pdb

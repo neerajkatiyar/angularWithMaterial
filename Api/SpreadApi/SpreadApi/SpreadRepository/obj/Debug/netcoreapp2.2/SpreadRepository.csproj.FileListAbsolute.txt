@@ -1,0 +1,16 @@
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\obj\Debug\netcoreapp2.2\SpreadRepository.csprojAssemblyReference.cache
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\obj\Debug\netcoreapp2.2\SpreadRepository.csproj.CoreCompileInputs.cache
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\obj\Debug\netcoreapp2.2\SpreadRepository.AssemblyInfoInputs.cache
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\obj\Debug\netcoreapp2.2\SpreadRepository.AssemblyInfo.cs
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\bin\Debug\netcoreapp2.2\SpreadRepository.deps.json
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\bin\Debug\netcoreapp2.2\SpreadRepository.dll
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\bin\Debug\netcoreapp2.2\SpreadRepository.pdb
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\bin\Debug\netcoreapp2.2\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\bin\Debug\netcoreapp2.2\Microsoft.Extensions.Options.dll
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\bin\Debug\netcoreapp2.2\SpreadCommon.dll
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\bin\Debug\netcoreapp2.2\SpreadCommon.pdb
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\bin\Debug\netcoreapp2.2\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\bin\Debug\netcoreapp2.2\Microsoft.Extensions.Options.xml
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\obj\Debug\netcoreapp2.2\SpreadRepository.csproj.CopyComplete
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\obj\Debug\netcoreapp2.2\SpreadRepository.dll
+D:\All\Angular6\angularWithMaterial\Api\SpreadApi\SpreadApi\SpreadRepository\obj\Debug\netcoreapp2.2\SpreadRepository.pdb
