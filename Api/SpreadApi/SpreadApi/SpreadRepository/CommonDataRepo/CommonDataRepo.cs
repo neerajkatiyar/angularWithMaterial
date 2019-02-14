@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using SpreadRepository.DataContext;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,8 @@ namespace SpreadRepository.CommonDataRepo
 
         public dynamic FindById(string Id)
         {
-            return null;
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(Id));
+            return  _userDataContext.GetCollection<BsonDocument>("Users").Find(filter).ToList();
         }
 
         public void Update(dynamic entity)

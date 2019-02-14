@@ -24,9 +24,9 @@ namespace SpreadApi.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<string> Get(string id)
         {
-            _commonDataService.FindById(id.ToString());
+            _commonDataService.FindById(id);
 
             //var client = new MongoClient("mongodb+srv://kay:myRealPassword@cluster0.mongodb.net/?ssl=true&authSource=admin");
             //var database = client.GetDatabase("test");

@@ -20,8 +20,8 @@ namespace SpreadRepository.DataContext
             get
             {
                 
-                var client = new MongoClient("mongodb+srv://" + this._appSettings.Value.DB_UserName + ":"+ this._appSettings.Value.DB_Password  + "@cluster0.mongodb.net/?ssl=true&authSource=admin");
-                return client.GetDatabase("test");
+                var client = new MongoClient("mongodb+srv://" + this._appSettings.Value.DB_UserName + ":"+ this._appSettings.Value.DB_Password  + "@awscluster1-l7t8v.mongodb.net/test?ssl=true&authSource=admin&connect=replicaSet");
+                return client.GetDatabase("MongoAppDb");
             }
 
         }
