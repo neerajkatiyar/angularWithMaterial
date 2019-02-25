@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.IO;
 using MongoDB.Driver;
 using SpreadRepository.DataContext;
 using System;
@@ -28,8 +29,10 @@ namespace SpreadRepository.CommonDataRepo
 
         public dynamic FindById(string Id)
         {
+            JsonWriterSettings jsonFormatterSettings = new JsonWriterSettings() { OutputMode = JsonOutputMode.Strict };
+
             var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(Id));
-            return  _userDataContext.GetCollection<BsonDocument>("Users").Find(filter).ToList();
+            return  _userDataContext.GetCollection<BsonDocument>("Users").Find(filter).FirstOrDefault().ToJson(jsonFormatterSettings);
         }
 
         public void Update(dynamic entity)
