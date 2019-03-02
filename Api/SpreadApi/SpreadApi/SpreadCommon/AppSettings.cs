@@ -6,6 +6,8 @@ namespace SpreadCommon
     {
         public string DB_UserName { get; set; }
         public string DB_Password { get; set; }
+        public string MongoConnectionString { get; set; }
+        public bool EnableAtlasDb { get; set; }
 
     }
 }

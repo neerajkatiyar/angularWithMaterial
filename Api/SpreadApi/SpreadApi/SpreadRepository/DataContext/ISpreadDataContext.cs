@@ -7,6 +7,6 @@ namespace SpreadRepository.DataContext
 {
    public interface ISpreadDataContext
     {
-        IMongoDatabase MongoContext { get; }
+        IMongoDatabase GetDatabase(string dbName);
     }
 }
