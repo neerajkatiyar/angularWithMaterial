@@ -47,6 +47,51 @@ namespace SpreadCommon.Helper
                 if (item.GetType() == typeof(BsonArray) && destination.GetType() == typeof(BsonArray) && item.GetType() == destination[0].GetType())
                 {
                     _bsonArr = (BsonArray)destination[0].DeepClone();
+                    MapBsonArrayPrevent_Recursion(item as BsonArray, _bsonArr);
+                    iSA = false;
+                }
+                else if (item.GetType() == typeof(BsonDocument) && destination[0].GetType() == typeof(BsonDocument))
+                {
+                    _bsonDoc = (BsonDocument)destination[0].DeepClone();
+                    Map(item as BsonDocument, _bsonDoc);
+                    iSA = false;
+                }
+                else if (item.GetType() == destination.GetType())
+                {
+                    destination = source;
+                }
+                if (item != null)
+                {
+                    if (_bsonDoc != null)
+                    {
+                        (destination as BsonArray).Add(_bsonDoc);
+                    }
+                    else if (_bsonArr != null)
+                    {
+                        (destination as BsonArray).Add(_bsonArr);
+                    }
+                    else
+                    {
+                        (destination as BsonArray).Add(item);
+                    }
+                }
+            }
+            if (!iSA)
+            {
+                (destination as BsonArray).RemoveAt(0);
+            }
+        }
+
+        private static void MapBsonArrayPrevent_Recursion(BsonArray source, BsonValue destination)
+        {
+            var iSA = true;
+            BsonDocument _bsonDoc = null;
+            BsonArray _bsonArr = null;
+            foreach (var item in source)
+            {
+                if (item.GetType() == typeof(BsonArray) && destination.GetType() == typeof(BsonArray) && item.GetType() == destination[0].GetType())
+                {
+                    _bsonArr = (BsonArray)destination[0].DeepClone();
                     MapBsonArray(item as BsonArray, _bsonArr);
                     iSA = false;
                 }
