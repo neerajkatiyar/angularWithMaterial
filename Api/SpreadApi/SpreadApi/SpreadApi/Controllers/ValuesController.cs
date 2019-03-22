@@ -4,13 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using SpreadCommon.Filter;
 using SpreadService.CommonDataService;
+using MongoDB.Bson;
 
 namespace SpreadApi.Controllers
 {
     public class ValuesController : SpreadBaseController
     {
-        private ICommonDataService _commonDataService;
+        private readonly ICommonDataService _commonDataService;
         public ValuesController(ICommonDataService commonDataService)
         {
             _commonDataService = commonDataService;
@@ -27,7 +29,13 @@ namespace SpreadApi.Controllers
         public ActionResult<dynamic> Get(string id)
         {
             //var t =  Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>("{name:''}");
-            return _commonDataService.FindById(id);
+            CommonDataFilter filter = new CommonDataFilter()
+            {
+                DatabaseName = "SpreadCommonDb",
+                CollectionName = "Users",
+                Id = ObjectId.Parse(id)
+            };
+            return _commonDataService.FindById(filter);
         }
 
         // POST api/values

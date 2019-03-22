@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.IO;
 using MongoDB.Driver;
+using SpreadCommon.Filter;
 using SpreadRepository.DataContext;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,10 @@ namespace SpreadRepository.CommonDataRepo
     public class CommonDataRepo : ICommonDataRepo
     {
         public IEnumerable<dynamic> List => throw new NotImplementedException();
-        private IMongoDatabase _userDataContext;
-        public CommonDataRepo(ISpreadDataContext userDataContext)
+        private ISpreadDataContext _spreadDataContext;
+        public CommonDataRepo(ISpreadDataContext spreadDataContext)
         {
-            this._userDataContext = userDataContext.GetDatabase("SpreadCommonDb");  //GetDatabase("SpreadDb");
+            this._spreadDataContext = spreadDataContext;
         }
 
         public void Add(dynamic entity)
@@ -27,12 +28,13 @@ namespace SpreadRepository.CommonDataRepo
             throw new NotImplementedException();
         }
 
-        public dynamic FindById(string Id)
+        public dynamic FindById(CommonDataFilter cFilter)
         {
             JsonWriterSettings jsonFormatterSettings = new JsonWriterSettings() { OutputMode = JsonOutputMode.Strict };
 
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(Id));
-            return  _userDataContext.GetCollection<BsonDocument>("Users").Find(filter).FirstOrDefault().ToJson(jsonFormatterSettings);
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", cFilter.Id);
+            var data = _spreadDataContext.GetDatabase(cFilter.DatabaseName).GetCollection<BsonDocument>(cFilter.CollectionName).Find(filter).FirstOrDefault();//.ToJson(jsonFormatterSettings);
+            return data is null ? "" : data.ToJson(jsonFormatterSettings);
         }
 
         public void Update(dynamic entity)

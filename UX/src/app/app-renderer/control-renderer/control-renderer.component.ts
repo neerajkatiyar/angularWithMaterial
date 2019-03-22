@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges, AfterViewChecked } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, AfterViewChecked, AfterViewInit } from '@angular/core';
 import { ControlBase } from '../../models/formBuilder/controlBase';
 import { FormGroup, Validators, AsyncValidator } from '@angular/forms';
 import { ValidationErrors, ValidatorFn } from "@angular/forms";
@@ -11,7 +11,7 @@ import{ ChangeDetectorRef } from '@angular/core';
   templateUrl: './control-renderer.component.html',
   styleUrls: ['./control-renderer.component.css']
 })
-export class ControlRendererComponent implements AfterViewChecked {
+export class ControlRendererComponent {//implements AfterViewChecked, AfterViewInit {
   @Input() control: ControlBase<any>;
   @Input() controlName: string;
   @Input() form: FormGroup;
@@ -45,8 +45,11 @@ export class ControlRendererComponent implements AfterViewChecked {
     return true;
   }
 
-  ngAfterViewChecked(){
-    this.cdRef.detectChanges();
-  }
-
+  // ngAfterViewChecked(){
+  //   this.cdRef.detectChanges();
+  // }
+  // ngAfterViewInit()
+  // {
+  //   this.cdRef.detectChanges();
+  // }
 }

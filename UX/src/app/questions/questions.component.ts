@@ -10,11 +10,15 @@ import { TestQuestionservice } from '../services/testQuestionService';
 export class QuestionsComponent implements OnInit {
 
   questionControls : {};
-  constructor(tqs: TestQuestionservice) {
-    this.questionControls = tqs.getQuestions();
+  constructor(private tqs: TestQuestionservice) {
+    
    }
 
   ngOnInit() {
+    this.tqs.getQuestions().subscribe(resp=>{
+      console.log(resp);
+      this.questionControls = resp.body.viewData;
+    });
   }
 
 }

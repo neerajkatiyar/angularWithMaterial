@@ -14,8 +14,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 38px 16px;
-    height: 56px !important;
+    /* padding: 38px 16px;
+    height: 56px !important; */
  
 }
 
@@ -71,4 +71,13 @@
 
 .nav-active{
     border-bottom: 2px #ffff solid;
+}
+
+#siteInfo, #navMenu{
+    height: 100%;
+    margin-top: 17px;
+}
+
+#siteInfo button, #navMenu button{
+    padding-bottom:8px;
 }

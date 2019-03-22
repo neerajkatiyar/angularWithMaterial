@@ -13,6 +13,7 @@ import { map, filter, debounceTime, distinctUntilChanged, delay, tap } from 'rxj
 export class ClickOutsideDirective implements OnInit, OnDestroy {
   private listening: boolean;
   private globalClick: Observable<MouseEvent>;
+  private mouseEvent_Outside : string = "mouseover";//override this event to perform behaviour accordingly...
 
   @Output('clickOutside') clickOutside: EventEmitter<Object>;
 
@@ -22,7 +23,7 @@ export class ClickOutsideDirective implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    fromEvent(document, 'click').pipe(
+    fromEvent(document, this.mouseEvent_Outside).pipe(
       delay(1), tap(() => {
         this.listening = true;
       })).subscribe((event: MouseEvent) => {

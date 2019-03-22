@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-content',
@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class NavbarContentComponent implements OnInit {
 
 @Output() closeNavBody = new EventEmitter<boolean>();
+@Input() selectedMenuId: number;
   constructor() { }
 
   ngOnInit() {

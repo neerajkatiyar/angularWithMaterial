@@ -8,6 +8,7 @@ import '../../helpers/cssHelper.extensions';
 })
 export class NavbarComponent implements OnInit {
   private active = false;
+  private selectedMenuId : number;
   constructor() { }
 
   ngOnInit() {
@@ -21,26 +22,40 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  onMenuSelection(event: MouseEvent) {
+  openMenu(event:MouseEvent,selectedMenu:number)
+  {
     let element = event.target as HTMLElement;
     // find buttonElement, in case of span, it's offsetParent
-    if (element.localName === 'span') {
-      element = element.offsetParent as HTMLElement;
-    }
-    if (element.hasClass('nav-active')) {
-      this.active = false; // behave like toggle;
-    }
-    else {
+    // if (element.localName === 'span') {
+    //   element = element.offsetParent as HTMLElement;
+    // }
+    // if (element.hasClass('nav-active')) {
+    //   this.active = false; // behave like toggle;
+    // }
+    // else {
       this.active = true;
-    }
-
-    if (this.active) {
-      this.activeMenu((event.target as HTMLElement));
-    }
-    else {
-      this.inActiveMenu();
-    }
+      this.activeMenu(element);
+      this.selectedMenuId = selectedMenu;
+    //}
   }
+
+  // onMenuSelection(event: MouseEvent) {
+  //   // let element = event.target as HTMLElement;
+  //   // // find buttonElement, in case of span, it's offsetParent
+  //   // if (element.localName === 'span') {
+  //   //   element = element.offsetParent as HTMLElement;
+  //   // }
+  //   // if (element.hasClass('nav-active')) {
+  //   //   this.active = false; // behave like toggle;
+  //   // }
+  //   // else {
+  //   //   this.active = true;
+  //   // }
+
+    
+  //     this.inActiveMenu();
+    
+  // }
 
   isElementIfPartOfNavbar(element: HTMLElement): boolean {
     return document.getElementById('navMenu').contains(element);
@@ -63,7 +78,9 @@ export class NavbarComponent implements OnInit {
   }
   onCloseNavBody(event) {
     this.active = false;
+    this.inActiveMenu();
   }
-
-
+  resetMenuSelection(){
+    this.inActiveMenu();
+  }
 }

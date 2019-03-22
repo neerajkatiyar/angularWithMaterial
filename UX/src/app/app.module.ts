@@ -52,6 +52,7 @@ import { FormControlRendererComponent } from './app-renderer/form-control-render
 import { FormGroupControlRendererComponent } from './app-renderer/form-group-control-renderer/form-group-control-renderer.component';
 import { CustomArrayControlRendererComponent } from './app-renderer/custom-array-control-renderer/custom-array-control-renderer.component';
 import { ProductsComponent } from './products/products.component';
+import { ViewRendererComponent } from './app-renderer/view-renderer/view-renderer.component';
 
 
 
@@ -84,6 +85,7 @@ import { ProductsComponent } from './products/products.component';
     FormGroupControlRendererComponent,
     CustomArrayControlRendererComponent,
     ProductsComponent,
+    ViewRendererComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,10 @@
 <div class="mdc-layout-grid">
   <div class="mdc-layout-grid__inner">
     <mat-toolbar color="primary" class="mat-elevation-z6 navbar navbar-header">
-      <div class="mat-layout-grid__cell mat-layout-grid__cell--span-4 mat-layout-grid__cell--span-12-tablet mat-layout-grid__cell--span-12-mobile">
+      <div id="siteInfo" class="mat-layout-grid__cell mat-layout-grid__cell--span-4 mat-layout-grid__cell--span-12-tablet mat-layout-grid__cell--span-12-mobile">
         <span>
           <i>
-            <a mat-button class="no-link-decoration" routerLink="">
+            <a mat-button class="no-link-decoration" routerLink="" (click) = "resetMenuSelection()">
               <i class="material-icons">explore</i>Alphonso, The Mango
             </a>
           </i>
@@ -14,33 +14,33 @@
       
       <div id="navMenu" class="mat-layout-grid__cell mat-layout-grid__cell--span-12 mat-layout-grid__cell--span-12-tablet">
         <div id="menuItems"><span class="fill-space"></span>
-          <button type="button" mat-button (click)="onMenuSelection($event)">Hero</button>
+          <button type="button" mat-flat-button (mouseenter) = "openMenu($event,1)" >Hero</button>
 
-          <!-- <button type="button" mat-button [matMenuTriggerFor]="menu1" (click)="onMenuSelection()">Hero</button> -->
+          <!-- <button type="button" mat-button [matMenuTriggerFor]="menu1" (click)="openMenu()">Hero</button> -->
           <!-- <mat-menu #menu1="matMenu">
             <a mat-menu-item routerLink="hero/hero-list">Hero List</a>
             <a mat-menu-item routerLink="hero/hero-flying-hero">Flying Heroes</a>
           </mat-menu> -->
           <span class="fill-space"></span>
-          <button type="button" mat-button (click)="onMenuSelection($event)">Menu2</button>
+          <button type="button" mat-flat-button (mouseenter) = "openMenu($event,2)" >Menu2</button>
 
-          <!-- <button type="button" mat-button [matMenuTriggerFor]="menu2" (click)="onMenuSelection()">Menu2</button> -->
+          <!-- <button type="button" mat-button [matMenuTriggerFor]="menu2" (click)="openMenu()">Menu2</button> -->
           <!-- <mat-menu #menu2="matMenu">
             <button mat-menu-item>item1</button>
             <button mat-menu-item>item2</button>
           </mat-menu> -->
           <span class="fill-space"></span>
-          <button type="button" mat-button (click)="onMenuSelection($event)">Menu3</button>
+          <button type="button" mat-flat-button (mouseenter) = "openMenu($event,3)" >Menu3</button>
 
-          <!-- <button type="button" mat-button [matMenuTriggerFor]="menu3" (click)="onMenuSelection()">Menu3</button> -->
+          <!-- <button type="button" mat-button [matMenuTriggerFor]="menu3" (click)="openMenu()">Menu3</button> -->
           <!-- <mat-menu #menu3="matMenu">
             <button mat-menu-item>item1</button>
             <button mat-menu-item>item2</button>
           </mat-menu> -->
           <span class="fill-space"></span>
-          <button type="button" mat-button (click)="onMenuSelection($event)">Menu4</button>
+          <button type="button" mat-flat-button (mouseenter) = "openMenu($event,4)" >Menu4</button>
 
-          <!-- <button type="button" mat-button [matMenuTriggerFor]="menu4" (click)="onMenuSelection()">Menu4</button> -->
+          <!-- <button type="button" mat-button [matMenuTriggerFor]="menu4" (click)="openMenu()">Menu4</button> -->
           <!-- <mat-menu #menu4="matMenu">
             <button mat-menu-item>item1</button>
             <button mat-menu-item>item2</button>
@@ -52,5 +52,5 @@
   </div>
 </div>
   <div appClickOutside (clickOutside)="onClickOutside($event)" class="nav-body" [ngClass]="{'nav-body-open': active==true}"  >
-     <app-navbar-content (closeNavBody) = "onCloseNavBody($event)"></app-navbar-content>
+     <app-navbar-content (closeNavBody) = "onCloseNavBody($event)" [selectedMenuId] = "selectedMenuId"></app-navbar-content>
   </div>

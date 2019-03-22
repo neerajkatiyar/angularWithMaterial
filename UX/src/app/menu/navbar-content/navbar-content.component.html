@@ -1,4 +1,5 @@
 <div style="text-align: right; margin-right: 30px; font-size: 2em;"><span (click) = "close()" style="cursor: pointer;">X</span></div>
+<div *ngIf="selectedMenuId === 1">
 <mat-grid-list cols="6" rowHeight="100px">
   <mat-grid-tile [colspan]="1" [rowspan]="2">
     <h3>Admin</h3>
@@ -9,3 +10,17 @@
   <mat-grid-tile [colspan]="5" [rowspan]="2">    
   </mat-grid-tile>
 </mat-grid-list>
+</div>
+
+<div *ngIf="selectedMenuId === 2">
+    <mat-grid-list cols="6" rowHeight="100px">
+        <mat-grid-tile [colspan]="1" [rowspan]="2">
+          <h3>Fashion</h3>
+          <ul class="menu">
+            <li (click)="close()" routerLink="admin/add-product">Topwear</li>
+          </ul>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="5" [rowspan]="2">    
+        </mat-grid-tile>
+      </mat-grid-list>
+</div>

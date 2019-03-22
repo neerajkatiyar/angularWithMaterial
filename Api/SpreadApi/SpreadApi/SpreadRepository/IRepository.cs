@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpreadCommon.Filter;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -19,6 +20,6 @@ namespace SpreadRepository
         void Add(dynamic entity);
         void Delete(dynamic entity);
         void Update(dynamic entity);
-        dynamic FindById(string Id);
+        dynamic FindById(CommonDataFilter cFiler);
     }
 }

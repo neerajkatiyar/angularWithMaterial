@@ -1,4 +1,5 @@
-﻿using SpreadRepository.CommonDataRepo;
+﻿using SpreadCommon.Filter;
+using SpreadRepository.CommonDataRepo;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ namespace SpreadService.CommonDataService
 {
     public class CommonDataService: ICommonDataService
     {
-        private ICommonDataRepo _commonDataRepo;
+        private readonly ICommonDataRepo _commonDataRepo;
         public CommonDataService(ICommonDataRepo commonDataRepo)
         {
             this._commonDataRepo = commonDataRepo;
@@ -25,9 +26,9 @@ namespace SpreadService.CommonDataService
             throw new NotImplementedException();
         }
 
-        public dynamic FindById(string Id)
+        public dynamic FindById(CommonDataFilter cFilter)
         {
-            return _commonDataRepo.FindById(Id);
+            return _commonDataRepo.FindById(cFilter);
         }
 
         public void Update(dynamic entity)

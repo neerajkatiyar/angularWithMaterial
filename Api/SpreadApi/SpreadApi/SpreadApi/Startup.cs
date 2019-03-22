@@ -34,6 +34,13 @@ namespace SpreadApi
             services.AddSingleton<ICommonDataService, CommonDataService>();
             services.AddSingleton<ISpreadDataContext, SpreadDataContext>();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+
+            services.AddCors(o => o.AddPolicy("AllowAnyHostPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +56,7 @@ namespace SpreadApi
                 app.UseHsts();
             }
 
+            app.UseCors("AllowAnyHostPolicy");
             app.UseHttpsRedirection();
             app.UseMvc();
         }
