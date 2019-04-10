@@ -6,13 +6,15 @@ using SpreadRepository.DataContext;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using SpreadCommon.Models;
 
 namespace SpreadRepository.CommonDataRepo
 {
     public class CommonDataRepo : ICommonDataRepo
     {
-        public IEnumerable<dynamic> List => throw new NotImplementedException();
-        private ISpreadDataContext _spreadDataContext;
+        //public IEnumerable<dynamic> List => throw new NotImplementedException();
+        private readonly ISpreadDataContext _spreadDataContext;
         public CommonDataRepo(ISpreadDataContext spreadDataContext)
         {
             this._spreadDataContext = spreadDataContext;
@@ -28,18 +30,55 @@ namespace SpreadRepository.CommonDataRepo
             throw new NotImplementedException();
         }
 
-        public dynamic FindById(CommonDataFilter cFilter)
+        public Task<BsonDocument> FindByIdAsync(CommonDataFilter filter)
         {
-            JsonWriterSettings jsonFormatterSettings = new JsonWriterSettings() { OutputMode = JsonOutputMode.Strict };
-
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", cFilter.Id);
-            var data = _spreadDataContext.GetDatabase(cFilter.DatabaseName).GetCollection<BsonDocument>(cFilter.CollectionName).Find(filter).FirstOrDefault();//.ToJson(jsonFormatterSettings);
-            return data is null ? "" : data.ToJson(jsonFormatterSettings);
+            return _spreadDataContext.GetDatabase(filter.DatabaseName)
+                .GetCollection<BsonDocument>(filter.CollectionName)
+                .Find(
+                    Builders<BsonDocument>.Filter.Eq("_id", filter.Id) //filter ~we can change here as per need~
+                )
+                .FirstOrDefaultAsync();
         }
 
         public void Update(dynamic entity)
         {
             throw new NotImplementedException();
         }
+
+        public async Task<BsonDocumentList> GetListAsync(CommonDataFilter filter)
+        {
+            BsonDocumentList bsonDocList = new BsonDocumentList()
+            {
+                Documents = new List<BsonDocument>()
+            };
+            var bFilter = Builders<BsonDocument>.Filter.Lt("", 3) & Builders<BsonDocument>.Filter.Lt("", 3) & Builders<BsonDocument>.Filter.Lt("", 3) | (Builders<BsonDocument>.Filter.Lt("", 3));
+            if (true)
+            {
+                bFilter = bFilter & Builders<BsonDocument>.Filter.Lt("", 3);
+            }
+
+            bsonDocList.TotalRecords = await _spreadDataContext
+                .GetDatabase(filter.DatabaseName)
+                .GetCollection<BsonDocument>(filter.CollectionName)
+                .Find(bFilter)
+                .CountDocumentsAsync();
+
+            var sortFilter = Builders<BsonDocument>.Sort.Descending("LastName").Ascending("FirstName");
+
+            await _spreadDataContext.GetDatabase(filter.DatabaseName)
+           .GetCollection<BsonDocument>(filter.CollectionName)
+           .Find(bFilter)
+           .Skip((filter.PageNo - 1) * filter.PageSize)
+           .Limit(filter.PageSize)
+           .Sort(sortFilter)
+           .ForEachAsync(doc =>
+           {
+               ((List<BsonDocument>)bsonDocList.Documents).Add(doc);
+           });
+
+
+            return bsonDocList;
+        }
     }
 }
+

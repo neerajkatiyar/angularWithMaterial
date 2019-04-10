@@ -26,16 +26,17 @@ namespace SpreadApi.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<dynamic> Get(string id)
+        public async Task<ActionResult<dynamic>> Get(string id)
         {
             //var t =  Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>("{name:''}");
+            //Example ID : 5ca8dff2dbd2cba7a7482dec
             CommonDataFilter filter = new CommonDataFilter()
             {
                 DatabaseName = "SpreadCommonDb",
                 CollectionName = "Users",
                 Id = ObjectId.Parse(id)
             };
-            return _commonDataService.FindById(filter);
+            return await _commonDataService.FindByIdAsync(filter);
         }
 
         // POST api/values

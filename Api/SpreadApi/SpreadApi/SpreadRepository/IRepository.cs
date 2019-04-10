@@ -1,7 +1,9 @@
-﻿using SpreadCommon.Filter;
+﻿using MongoDB.Bson;
+using SpreadCommon.Filter;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SpreadRepository
 {
@@ -16,10 +18,10 @@ namespace SpreadRepository
 
     public interface IRepository
     {
-        IEnumerable<dynamic> List { get; }
+        Task<SpreadCommon.Models.BsonDocumentList> GetListAsync(CommonDataFilter filter);
         void Add(dynamic entity);
         void Delete(dynamic entity);
         void Update(dynamic entity);
-        dynamic FindById(CommonDataFilter cFiler);
+        Task<BsonDocument> FindByIdAsync(CommonDataFilter filter);
     }
 }

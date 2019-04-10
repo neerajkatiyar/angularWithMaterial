@@ -12,5 +12,8 @@ namespace SpreadCommon.Filter
         public string CollectionName { get; set; }
         public ObjectId Id { get; set; }
         public ExpandoObject AdditionalInfo { get; set; }
+        public bool LoadAllDocumnets { get; set; }
+        public int PageNo { get; set; }
+        public int PageSize { get; set; }
     }
 }

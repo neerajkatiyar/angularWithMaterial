@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using SpreadApi.Filters;
 using SpreadCommon.Filter;
 using SpreadService.CommonDataService;
 
@@ -32,7 +33,7 @@ namespace SpreadApi.Controllers.View
                 Id = ObjectId.Parse(id),
                 AdditionalInfo = AdditionalInfo
             };
-            return _commonDataService.FindById(cfilter);
+            return _commonDataService.FindByIdAsync(cfilter);
         }
     }
 }

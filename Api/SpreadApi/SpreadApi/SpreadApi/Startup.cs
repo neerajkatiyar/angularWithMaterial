@@ -14,6 +14,8 @@ using SpreadRepository.CommonDataRepo;
 using SpreadService.CommonDataService;
 using SpreadCommon;
 using SpreadRepository.DataContext;
+using SpreadApi.Filters;
+using SpreadApi.Filters.Helper;
 
 namespace SpreadApi
 {
@@ -34,6 +36,7 @@ namespace SpreadApi
             services.AddSingleton<ICommonDataService, CommonDataService>();
             services.AddSingleton<ISpreadDataContext, SpreadDataContext>();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            services.AddSingleton<IResponseHandler, ResponseHandler>();
 
             services.AddCors(o => o.AddPolicy("AllowAnyHostPolicy", builder =>
             {
@@ -41,6 +44,7 @@ namespace SpreadApi
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
+            services.AddScoped<JsonResponseFilterWithDi>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
