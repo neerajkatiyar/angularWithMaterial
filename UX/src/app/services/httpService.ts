@@ -5,7 +5,7 @@ import {Config} from '../models/config';
 export class HttpService{
 
     config: Config;
-    configUrl = 'assets/config.json';
+    configUrl = '../src/app/config.json';
 
  /**
   *constructor to assign private var's

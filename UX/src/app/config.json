@@ -1,8 +1,7 @@
 {
-    "serviceURL" : "api/*"
+    "serviceURL" : "api/*",
+    "baseUrl":"http://localhost:55271/"
 }
-
-
 
 
 
