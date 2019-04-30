@@ -16,6 +16,7 @@ using SpreadCommon;
 using SpreadRepository.DataContext;
 using SpreadApi.Filters;
 using SpreadApi.Filters.Helper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace SpreadApi
 {
@@ -45,6 +46,21 @@ namespace SpreadApi
                        .AllowAnyHeader();
             }));
             services.AddScoped<JsonResponseFilterWithDi>();
+
+            //authentication
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                 .AddJwtBearer(options =>
+                 {
+                     options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                     {
+                         ValidateIssuer = true,
+                         ValidateAudience = true,
+                         ValidateLifetime = true,
+                         ValidateIssuerSigningKey = true,
+                         ValidIssuer = Configuration["AppSettings:Jwt:Issuer"],
+                         ValidAudience = Configuration["AppSettings:Jwt:Issuer"],
+                     };
+                 });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +78,7 @@ namespace SpreadApi
 
             app.UseCors("AllowAnyHostPolicy");
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

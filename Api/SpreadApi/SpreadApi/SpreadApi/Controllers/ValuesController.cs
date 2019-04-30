@@ -18,7 +18,9 @@ namespace SpreadApi.Controllers
             _commonDataService = commonDataService;
         }
         // GET api/values
-        [HttpGet]
+        [HttpGet("rr")]
+        [HttpGet("abc/abc")]
+        [HttpPost("tt/tt")]
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };

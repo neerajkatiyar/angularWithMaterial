@@ -26,5 +26,11 @@ export const appRoutes: Routes = [
     {
         path: 'admin/add-product',
         component: QuestionsComponent
+    },
+    {
+        path: 'products/ByLazyLoading',
+        loadChildren : '../customers/customers.module#CustomersModule'
     }
+
+
 ];
