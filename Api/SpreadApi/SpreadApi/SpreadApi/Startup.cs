@@ -17,6 +17,9 @@ using SpreadRepository.DataContext;
 using SpreadApi.Filters;
 using SpreadApi.Filters.Helper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using SpreadCommon.Helper;
 
 namespace SpreadApi
 {
@@ -57,8 +60,9 @@ namespace SpreadApi
                          ValidateAudience = true,
                          ValidateLifetime = true,
                          ValidateIssuerSigningKey = true,
-                         ValidIssuer = Configuration["AppSettings:Jwt:Issuer"],
-                         ValidAudience = Configuration["AppSettings:Jwt:Issuer"],
+                         ValidIssuer = Configuration[ConfigurationSettings.AppSettings_Jwt_Issuer], //Configuration["AppSettings:Jwt:Issuer"],
+                         ValidAudience = Configuration[ConfigurationSettings.AppSettings_Jwt_Issuer], //Configuration["AppSettings:Jwt:Issuer"],
+                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration[ConfigurationSettings.AppSettings_Jwt_Key]))
                      };
                  });
         }

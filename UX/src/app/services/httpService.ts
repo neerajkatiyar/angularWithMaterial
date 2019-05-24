@@ -1,4 +1,4 @@
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpResponse, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Config} from '../models/config';
 
@@ -26,4 +26,17 @@ export class HttpService{
         return this.http.get<T>(
             url, { observe: 'response' });
       }
+
+      getFile(url : string,options:object):  Observable<HttpResponse<Blob>> {
+        const httpOptions = {
+            observe:'body',  responseType: 'blob' as 'json',      headers: new HttpHeaders({        'Authorization': 'authKey', })
+          };
+
+        return this.http.get<Blob>(
+            url, {
+                observe:'response',  responseType: 'blob' as 'json',      headers: new HttpHeaders({        'Authorization': 'authKey', })
+              });
+      }
+
+
 }

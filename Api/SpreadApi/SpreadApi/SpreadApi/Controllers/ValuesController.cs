@@ -7,9 +7,11 @@ using Microsoft.Extensions.Configuration;
 using SpreadCommon.Filter;
 using SpreadService.CommonDataService;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SpreadApi.Controllers
 {
+    [Authorize]
     public class ValuesController : SpreadBaseController
     {
         private readonly ICommonDataService _commonDataService;

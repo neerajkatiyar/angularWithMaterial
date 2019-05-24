@@ -14,7 +14,7 @@ namespace SpreadApi.Filters.Helper
         {
             JsonWriterSettings jsonFormatterSettings = new JsonWriterSettings() { OutputMode = JsonOutputMode.Strict };
 
-            if (result.Value != null && typeof(BsonDocument) == result.Value.GetType())
+            if (result!= null && result.Value != null && typeof(BsonDocument) == result.Value.GetType())
             {
                 result.Value = (result.Value as BsonDocument).ToJson(jsonFormatterSettings);
             }

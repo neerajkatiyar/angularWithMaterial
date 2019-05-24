@@ -11,7 +11,6 @@ using SpreadService.CommonDataService;
 namespace SpreadApi.Controllers.AppMenu
 {
     [Route("api/vx/appMenu")]
-    [ApiController]
     public class AppMenuController : SpreadBaseController
     {
         private readonly ICommonDataService _commonDataService;
