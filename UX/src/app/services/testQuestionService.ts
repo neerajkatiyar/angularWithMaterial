@@ -19,7 +19,7 @@ export class TestQuestionservice extends HttpService {
     /**
      *
      */
-     baseUrl = "";
+     baseUrl = "https://localhost:44380/";
     constructor(http:HttpClient) {
         super(http);
          this.getConfigResponse().subscribe(x=>{
@@ -181,7 +181,7 @@ export class TestQuestionservice extends HttpService {
         // return  JSON.parse(json_data); //.sort((a, b) => a.order - b.order);
 
 
-     return  this.get<any>( this.baseUrl + "api/vx/5caf1e726e06725e61602ee8");
+     return  this.get<any>( this.baseUrl + "api/vx/5c840bbb2d1599b12370004f");
 
     }
 }

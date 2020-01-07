@@ -1,6 +1,6 @@
 {
     "serviceURL" : "api/*",
-    "baseUrl":"http://localhost:55271/"
+    "baseUrl":"https://localhost:5001/"
 }
 
 

@@ -42,12 +42,12 @@ namespace SpreadApi.Controllers.View
         {
             var AdditionalInfo = new System.Dynamic.ExpandoObject();
             AdditionalInfo.TryAdd("ViewId", 0);
-
+           
             CommonDataFilter cfilter = new CommonDataFilter()
             {
                 DatabaseName = "SpreadViewDb",
                 CollectionName = "Pages",
-                Id = ObjectId.Parse(id),
+               // Id = ObjectId.Parse(id),
                 AdditionalInfo = AdditionalInfo
             };
             return await _commonDataService.FindByIdAsync(cfilter);

@@ -8,7 +8,8 @@ import { QuestionsComponent } from '../questions/questions.component';
 export const appRoutes: Routes = [
     {
         path: '',
-        component: GridSystemComponent
+        component: GridSystemComponent,
+        pathMatch: 'full'
     },
     {
         path: 'hero/hero-list',
@@ -20,11 +21,20 @@ export const appRoutes: Routes = [
     },
     {
         path: 'hero/hero-async-message',
-        component: HeroAsyncMessageComponent
+        component: HeroAsyncMessageComponent,
     },
 
     {
         path: 'admin/add-product',
         component: QuestionsComponent
+    },
+
+    {
+        path: 'customer-list',
+        loadChildren: '../customers/customers.module#CustomersModule'  //../app/view-one/view-one.module#ViewOneModule //() => import('../customers/customers.module').then(m=> m.CustomersModule)
+    },
+    {
+        path: 'order-list',
+        loadChildren: '../orders/orders.module#OrdersModule' //() => import('../orders/orders.module').then(o => o.OrdersModule)
     }
 ];

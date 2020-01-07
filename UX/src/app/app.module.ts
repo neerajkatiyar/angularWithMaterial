@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // http handling module
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -53,6 +53,8 @@ import { FormGroupControlRendererComponent } from './app-renderer/form-group-con
 import { CustomArrayControlRendererComponent } from './app-renderer/custom-array-control-renderer/custom-array-control-renderer.component';
 import { ProductsComponent } from './products/products.component';
 import { ViewRendererComponent } from './app-renderer/view-renderer/view-renderer.component';
+import { RequestInterceptor } from './services/interceptors/RequestInterceptor';
+
 
 
 
@@ -94,9 +96,11 @@ import { ViewRendererComponent } from './app-renderer/view-renderer/view-rendere
     BrowserAnimationsModule,
     CustomMaterialModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

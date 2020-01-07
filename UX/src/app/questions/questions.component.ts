@@ -15,6 +15,7 @@ export class QuestionsComponent implements OnInit {
    }
 
   ngOnInit() {
+    debugger;
     this.tqs.getQuestions().subscribe(resp=>{
       console.log(resp);
       this.questionControls = resp.body.viewData;

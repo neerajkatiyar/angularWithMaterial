@@ -13,6 +13,10 @@
 
   <router-outlet></router-outlet>
 </div>
+<div [hidden] = "!IsHttpRequestProcessing" class="loader">
+    <mat-progress-spinner  mode="indeterminate"></mat-progress-spinner>
+    <div id="overlay"></div>
+</div>
 
 
 

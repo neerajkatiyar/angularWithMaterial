@@ -10,6 +10,7 @@ MatSelectModule,
 MatCardModule,
 MatDatepickerModule,
 MatNativeDateModule,
+MatProgressSpinnerModule
 } from '@angular/material'
 import { NgModule } from '@angular/core';
 
@@ -19,14 +20,16 @@ imports:[
          MatToolbarModule,MatMenuModule,
          MatGridListModule,MatFormFieldModule,MatInputModule,
          MatSelectModule,MatCardModule,
-         MatDatepickerModule,MatNativeDateModule
+         MatDatepickerModule,MatNativeDateModule,
+         MatProgressSpinnerModule
         ],
 exports:[
          MatButtonModule,MatCheckboxModule,
          MatToolbarModule,MatMenuModule,
          MatGridListModule,MatFormFieldModule,MatInputModule,
          MatSelectModule,MatCardModule,
-         MatDatepickerModule,MatNativeDateModule
+         MatDatepickerModule,MatNativeDateModule,
+         MatProgressSpinnerModule
         ]
 })
 export class CustomMaterialModule

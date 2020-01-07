@@ -6,13 +6,12 @@ import '../../helpers/cssHelper.extensions';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   private active = false;
   private selectedMenuId : number;
   constructor() { }
 
-  ngOnInit() {
-  }
+
   onClickOutside(event: MouseEvent) {
     const ss = event.target as HTMLElement;
     const isElementIfPartOfNav = this.isElementIfPartOfNavbar(ss);
@@ -77,6 +76,7 @@ export class NavbarComponent implements OnInit {
     });
   }
   onCloseNavBody(event) {
+    console.log("printing ..." + event);
     this.active = false;
     this.inActiveMenu();
   }
