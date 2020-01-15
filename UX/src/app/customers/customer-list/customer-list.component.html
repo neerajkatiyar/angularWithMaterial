@@ -1,4 +1,5 @@
-<p>
+  <pre>
+  <p>
   customer-list works!  customer-list works!  customer-list works!  customer-list works!
   customer-list works!
   customer-list works!
@@ -8,6 +9,10 @@
   customer-list works!
 
   customer-list works!
-
-  
 </p>
+</pre>
+<a [routerLink]="['count']" [queryParams] = "{filter: 'new', total: total}">Customers Count</a>
+<div></div>
+<a routerLink="testPathOf-customerList">test PathOf customer List</a>
+
+<router-outlet></router-outlet>

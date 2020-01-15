@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-
+public total:number;
   constructor() { }
-
+ 
   ngOnInit() {
+    this.total = 1908;
   }
 
 }
